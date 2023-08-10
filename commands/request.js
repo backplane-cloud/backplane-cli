@@ -18,6 +18,7 @@ const request = {
   },
 
   async getRequest(cmd) {
+    console.log("i am really here");
     if (cmd.id === undefined) {
       console.log("Missing request ID, use --id <request id>".red);
       return;
@@ -25,6 +26,22 @@ const request = {
     try {
       const backplane = new BackplaneAPI();
       const requests = await backplane.getRequest(cmd.id);
+
+      console.log(requests);
+    } catch (err) {
+      console.error(err.message.red);
+    }
+  },
+
+  async approveRequest(cmd) {
+    if (cmd.id === undefined) {
+      console.log("Missing request ID, use --id <request id>".red);
+      return;
+    }
+    try {
+      console.log(cmd.code);
+      const backplane = new BackplaneAPI();
+      const requests = await backplane.approveRequest(cmd.id, cmd.code);
 
       console.log(requests);
     } catch (err) {
@@ -108,23 +125,6 @@ const request = {
     }
   },
 
-  async approveRequest(cmd) {
-    // Check Required options have been provided.
-    if (cmd.id === undefined) {
-      console.log("Need to provide --id".red);
-      return;
-    }
-    const approvalStatus = "approved";
-    try {
-      const backplane = new BackplaneAPI();
-
-      await backplane.updateRequest(cmd.id, approvalStatus);
-
-      //console.log(`request ${request.name} has been successfully created`);
-    } catch (err) {
-      console.error(err.message.red);
-    }
-  },
   async rejectRequest(cmd) {
     // Check Required options have been provided.
     if (cmd.id === undefined) {

@@ -14,6 +14,14 @@ program
   .option("-i, --id <Request ID>", "Enter Request ID")
   .action((cmd) => Request.getRequest(cmd));
 
+// APPROVE
+program
+  .command("approve")
+  .description("Approve a Request")
+  .option("-i, --id <Request ID>", "Enter Request ID to approve")
+  .option("--code <String>", "Enter Approval Code")
+  .action((cmd) => Request.approveRequest(cmd));
+
 // DELETE
 program
   .command("remove")
