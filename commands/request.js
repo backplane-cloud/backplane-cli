@@ -80,13 +80,11 @@ const request = {
 
     if (
       (cmd.requestType === undefined) |
-      (cmd.requestedBy === undefined) |
       (cmd.requestedForType === undefined) |
       (cmd.requestedForId === undefined)
     ) {
       console.log(
-        "Need to provide --requestType --requestedBy --requestedForType --requestedForID"
-          .red
+        "Need to provide --requestType  --requestedForType --requestedForID".red
       );
       return;
     }
@@ -94,11 +92,7 @@ const request = {
       const backplane = new BackplaneAPI();
 
       const request = await backplane.addRequest(
-        cmd.requestType,
-        cmd.approvalStatus,
-        cmd.approvalCode,
-        cmd.approver,
-        cmd.requestedBy,
+        cmd.requestType, //applink, productbudget, platformbudget
         cmd.requestedForType,
         cmd.requestedForId
       );

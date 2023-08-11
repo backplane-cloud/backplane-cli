@@ -36,20 +36,16 @@ program
 program
   .command("add")
   .description("Creates a new Request")
-  //.option("-i, --id <Request ID>", "Enter Request ID")
+
   .option(
     "--requestType <'applink' | 'exemption' | 'budget'>",
     "Enter Request Type"
   )
+
+  // .option("--approver <User ID>", "Enter Approver")
+  // .option("--requestedBy <User ID>", "Enter User ID")
   .option(
-    "--approvalStatus <'approved', 'requested','rejected'>",
-    "Enter Approval Status"
-  )
-  .option("--approvalCode <random number>", "Enter Approval Code")
-  .option("--approver <User ID>", "Enter Approver")
-  .option("--requestedBy <User ID>", "Enter User ID")
-  .option(
-    "--requestedForType <'org' | 'platform' | 'product'>",
+    "--requestedForType <'org' | 'platform' | 'product' | 'app'>",
     "Enter Requested For Type"
   )
   .option(
