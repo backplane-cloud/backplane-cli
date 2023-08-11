@@ -15,7 +15,7 @@ program
   .command("product", "Manage Products".green)
   .command("platform", "Manage Platforms".green)
   .command("org", "Manage Orgs".green)
-  .command("request", "Manage Requests".green)
+  .command("request", "Manage Approval Requests".green)
 
   .command("", "\n-----------[ Access Administration ]--------")
   .command("auth", "Login to Backplane".yellow)
