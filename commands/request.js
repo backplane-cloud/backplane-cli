@@ -18,7 +18,6 @@ const request = {
   },
 
   async getRequest(cmd) {
-    console.log("i am really here");
     if (cmd.id === undefined) {
       console.log("Missing request ID, use --id <request id>".red);
       return;
