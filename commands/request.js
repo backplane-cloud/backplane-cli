@@ -32,6 +32,17 @@ const request = {
     }
   },
 
+  async getMyRequests(cmd) {
+    try {
+      const backplane = new BackplaneAPI();
+      const requests = await backplane.getMyRequests();
+
+      console.log(requests);
+    } catch (err) {
+      console.error(err.message.red);
+    }
+  },
+
   async approveRequest(cmd) {
     if (cmd.id === undefined) {
       console.log("Missing request ID, use --id <request id>".red);

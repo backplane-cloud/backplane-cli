@@ -12,7 +12,10 @@ program
   .command("show")
   .description("Show an Request")
   .option("-i, --id <Request ID>", "Enter Request ID")
-  .action((cmd) => Request.getRequest(cmd));
+  .option("--me", "Show My Requests")
+  .action((cmd) =>
+    !cmd.me ? Request.getRequest(cmd) : Request.getMyRequests(cmd)
+  );
 
 // APPROVE
 program
