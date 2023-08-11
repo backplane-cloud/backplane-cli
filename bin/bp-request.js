@@ -53,6 +53,15 @@ program
     "Enter Requested For ID"
   )
 
+  .option(
+    "--appid <AppID>",
+    "For applink enter AppID, for budget, enter budget amount etc"
+  )
+  .option(
+    "--budget <BudgetAmount>",
+    "For applink enter AppID, for budget, enter budget amount etc"
+  )
+
   .action((cmd) => Request.addRequest(cmd));
 
 // UPDATE

@@ -90,11 +90,12 @@ const request = {
     }
     try {
       const backplane = new BackplaneAPI();
-
+      const data = cmd.appid ? cmd.appid : cmd.budget;
       const request = await backplane.addRequest(
         cmd.requestType, //applink, productbudget, platformbudget
         cmd.requestedForType,
-        cmd.requestedForId
+        cmd.requestedForId,
+        data
       );
 
       //console.log(`request ${request.name} has been successfully created`);
