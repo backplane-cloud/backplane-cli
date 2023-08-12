@@ -38,8 +38,9 @@ program
   .command("oopa", "Open Onboarding Platform API".gray)
   .command("graph", "Cloud Graph".gray)
   .command("what", "Who has access to What ?".gray)
+  .command("backlog", "Product Backlog management and workflows".gray)
 
-  .command("", "\n----------[ Documentation ]----------n")
+  .command("", "\n----------[ Documentation ]----------")
   .command("getting-started", "Getting Started User Guide")
   .command("about", "About Backplane")
 
