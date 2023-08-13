@@ -21,7 +21,7 @@ const product = {
     }
     try {
       const backplane = new BackplaneAPI();
-      const products = await backplane.getProduct(cmd.id);
+      const products = await backplane.getProduct(cmd.id, cmd.stringify);
 
       console.log(products);
     } catch (err) {
