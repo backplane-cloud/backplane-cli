@@ -35,9 +35,12 @@ program
     "Enter product display name e.g. 'My product X'"
   )
   .option("--code <value>", "Enter product code e.g. my-product-x")
-  .option("--orgid <value>", "Enter Organisation ID")
+  .option(
+    "--orgid <value>",
+    "Enter Organisation ID, Defaults to logged in User Org"
+  )
   .option("--platformid <value", "Enter Platform ID")
-  .option("--ownerid <value>", "Enter User ID")
+  .option("--ownerid <value>", "Enter User ID, Defaults to Logged in User ID")
   .action((cmd) => product.addProduct(cmd));
 
 // UPDATE

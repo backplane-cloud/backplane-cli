@@ -51,13 +51,9 @@ const product = {
     if (
       (cmd.code === undefined) |
       (cmd.displayname === undefined) |
-      (cmd.platformid === undefined) |
-      (cmd.ownerid === undefined)
+      (cmd.platformid === undefined)
     ) {
-      console.log(
-        "Need to provide --code, --displayname, --org and --owner <owner ID>"
-          .red
-      );
+      console.log("Need to provide --code, --displayname and --platformId".red);
       return;
     }
     try {
