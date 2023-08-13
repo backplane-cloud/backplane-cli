@@ -83,7 +83,7 @@ function requestCommands() {
 
   request
     .command("add")
-    .description("Creates a new Request for Platform")
+    .description("Creates a new Request for Product")
     .option(
       "--requestType <'applink' | 'exemption' | 'budget'>",
       "Enter Request Type"
@@ -91,14 +91,8 @@ function requestCommands() {
     .option("--approvalCode <random number>", "Enter Approval Code")
     .option("--approver <User ID>", "Enter Approver")
     .option("--requestedBy <User ID>", "Enter User ID")
-    .option(
-      "--requestedForType <'org' | 'platform' | 'product'>",
-      "Enter Requested For Type"
-    )
-    .option(
-      "--requestedForId <Org, Platform, Product or App ID>",
-      "Enter Requested For ID"
-    )
+    .option("--requestedForType <Product ID>", "Enter Requested For Type")
+    .option("--requestedForId <Product ID>", "Enter Requested For ID")
     .action((cmd) => Request.addRequest(cmd));
 
   return request;
