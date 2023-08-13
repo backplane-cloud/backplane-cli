@@ -3,10 +3,10 @@ const TokenManager = require("../lib/TokenManager");
 const colors = require("colors");
 
 const platform = {
-  async getPlatforms() {
+  async getPlatforms(cmd) {
     try {
       const backplane = new BackplaneAPI();
-      const platforms = await backplane.getPlatforms();
+      const platforms = await backplane.getPlatforms(cmd.stringify);
       console.log(platforms);
     } catch (err) {
       console.error(err.message.red);
@@ -20,7 +20,7 @@ const platform = {
     }
     try {
       const backplane = new BackplaneAPI();
-      const platforms = await backplane.getPlatform(cmd.id);
+      const platforms = await backplane.getPlatform(cmd.id, cmd.stringify);
       console.log(platforms);
     } catch (err) {
       console.error(err.message.red);

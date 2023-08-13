@@ -3,7 +3,11 @@ const org = require("../commands/org");
 const Request = require("../commands/request");
 
 // GET all
-program.command("list").description("List Orgs").action(org.getOrgs);
+program
+  .command("list")
+  .description("List Orgs")
+  .option("-s, --stringify", "Return as JSON string")
+  .action(org.getOrgs);
 
 // GET
 program
@@ -13,6 +17,7 @@ program
   .option("--code <Org Code", "Enter Org Code")
   .option("--tree", "Switch to show hierarchy")
   .option("-f, --full", "includes ID")
+  .option("-s, --stringify", "Return as JSON string")
   .action((cmd) => (cmd.tree ? org.showTree(cmd) : org.getOrg(cmd)));
 
 // DELETE

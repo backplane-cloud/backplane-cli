@@ -6,6 +6,8 @@ const Request = require("../commands/request");
 program
   .command("list")
   .description("List platforms")
+  .option("-s, --stringify", "Return as JSON string")
+
   .action(platform.getPlatforms);
 
 // GET
@@ -13,6 +15,7 @@ program
   .command("show")
   .description("Show an platform")
   .option("-i, --id <platform ID>", "Enter platform ID")
+  .option("-s, --stringify", "Return as JSON string")
   .action((cmd) =>
     cmd.tree ? platform.showTree(cmd) : platform.getPlatform(cmd)
   );

@@ -4,10 +4,10 @@ const colors = require("colors");
 //const backplaneAPI = new BackplaneAPI();
 
 const org = {
-  async getOrgs() {
+  async getOrgs(cmd) {
     try {
       const backplane = new BackplaneAPI();
-      const orgs = await backplane.getOrgs();
+      const orgs = await backplane.getOrgs(cmd.stringify);
       console.log(orgs);
     } catch (err) {
       console.error(err.message.red);
@@ -23,7 +23,10 @@ const org = {
     }
     try {
       const backplane = new BackplaneAPI();
-      const orgs = await backplane.getOrg(cmd.id ? cmd.id : cmd.code);
+      const orgs = await backplane.getOrg(
+        cmd.id ? cmd.id : cmd.code,
+        cmd.stringify
+      );
 
       console.log(orgs);
     } catch (err) {
