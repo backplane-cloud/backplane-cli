@@ -2,10 +2,10 @@ const BackplaneAPI = require("../lib/BackplaneAPI");
 const colors = require("colors");
 
 const app = {
-  async getApps() {
+  async getApps(cmd) {
     try {
       const backplane = new BackplaneAPI();
-      const apps = await backplane.getApps();
+      const apps = await backplane.getApps(cmd.stringify);
 
       console.log(apps);
     } catch (err) {
@@ -20,7 +20,7 @@ const app = {
     }
     try {
       const backplane = new BackplaneAPI();
-      const apps = await backplane.getApp(cmd.id);
+      const apps = await backplane.getApp(cmd.id, cmd.stringify);
 
       console.log(apps);
     } catch (err) {

@@ -3,13 +3,18 @@ const app = require("../commands/app");
 const Request = require("../commands/request");
 
 // GET all
-program.command("list").description("List apps").action(app.getApps);
+program
+  .command("list")
+  .description("List apps")
+  .option("-s, --stringify", "Return as JSON string")
+  .action((cmd) => app.getApps(cmd));
 
 // GET
 program
   .command("show")
   .description("Show an app")
   .option("-i, --id <app ID>", "Enter app ID")
+  .option("-s, --stringify", "Return as JSON string")
   .action((cmd) => app.getApp(cmd));
 
 // DELETE
