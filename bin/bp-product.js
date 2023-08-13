@@ -7,6 +7,7 @@ program
   .command("list")
   .description("List Active Products")
   .option("-a, --all", "Include any archived products")
+  .option("-s, --stringify", "Return as JSON string")
   .action((cmd) => product.getProducts(cmd));
 
 // GET
@@ -14,6 +15,7 @@ program
   .command("show")
   .description("Show an product")
   .option("-i, --id <product ID>", "Enter product ID")
+  .option("-s, --stringify", "Return as JSON string")
   .option("--tree", "Switch to show hierarchy")
   .action((cmd) => product.getProduct(cmd));
 

@@ -6,7 +6,7 @@ const product = {
   async getProducts(cmd) {
     try {
       const backplane = new BackplaneAPI();
-      const products = await backplane.getProducts(cmd.all);
+      const products = await backplane.getProducts(cmd.all, cmd.stringify);
 
       console.log(products);
     } catch (err) {
