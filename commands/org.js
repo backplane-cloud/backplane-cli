@@ -52,12 +52,7 @@ const org = {
 
   async addOrg(cmd) {
     // Check Required options have been provided.
-    if (
-      (cmd.code === undefined) |
-      (cmd.displayname === undefined) |
-      (cmd.license === undefined) |
-      (cmd.owner === undefined)
-    ) {
+    if ((cmd.displayname === undefined) | (cmd.license === undefined)) {
       console.log(
         "Need to provide --code, --displayname, --license and --owner <owner ID>"
           .red
@@ -68,10 +63,12 @@ const org = {
       const backplane = new BackplaneAPI();
 
       const org = await backplane.addOrg(
-        cmd.code,
+        //cmd.code,
         cmd.displayname,
         cmd.license,
-        cmd.owner
+        cmd.owner,
+        cmd.budget,
+        cmd.currency
       );
 
       //console.log(`Org ${org.name} has been successfully created`);

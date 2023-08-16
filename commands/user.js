@@ -93,8 +93,8 @@ const user = {
         cmd.displayname,
         cmd.email,
         cmd.password,
-        cmd.orgid,
-        cmd.usertype
+        cmd.usertype,
+        cmd.orgname
       );
 
       //console.log(`User ${user.name} has been successfully created`);

@@ -35,6 +35,8 @@ program
   .option("--code <value>", "Enter Org code e.g. my-org-x")
   .option("--license <value>", "e.g. Enterprise or Community Edition")
   .option("--owner <value>", "Enter User ID")
+  .option("--budget <value>", "Enter Org Budget")
+  .option("--currency <value>", "Enter Org Currency")
   .action((cmd) => org.addOrg(cmd));
 
 // UPDATE
