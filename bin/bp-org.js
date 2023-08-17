@@ -61,7 +61,7 @@ function requestCommands() {
   request
     .command("list")
     .description("List Requests for Org")
-    .option("-i, --id <Team ID>", "Enter Team ID")
+    .option("-i, --id <Org ID>", "Enter Org ID (Root user only)")
     .action((cmd) => org.getOrgRequest(cmd));
 
   request
