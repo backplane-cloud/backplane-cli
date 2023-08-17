@@ -180,14 +180,14 @@ const org = {
     }
   },
 
-  async getOrgRequest() {
+  async getOrgRequest(cmd) {
     // if (cmd.id === undefined) {
     //   console.log("Missing request ID, use --id <request id>".red);
     //   return;
     // }
     try {
       const backplane = new BackplaneAPI();
-      const requests = await backplane.getOrgRequest();
+      const requests = await backplane.getOrgRequest(cmd.id);
 
       console.log(requests);
     } catch (err) {
