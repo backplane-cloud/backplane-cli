@@ -34,13 +34,14 @@ program
     "--displayname <value>",
     "Enter product display name e.g. 'My product X'"
   )
-  .option("--code <value>", "Enter product code e.g. my-product-x")
+  //.option("--code <value>", "Enter product code e.g. my-product-x")
   .option(
     "--orgid <value>",
     "Enter Organisation ID, Defaults to logged in User Org"
   )
   .option("--platformid <value", "Enter Platform ID")
   .option("--ownerid <value>", "Enter User ID, Defaults to Logged in User ID")
+  .option("--description <value>", "Enter a description for the product")
   .action((cmd) => product.addProduct(cmd));
 
 // UPDATE
@@ -56,7 +57,8 @@ program
   .option("--budgetYear <value>", "Enter Budget Year")
   .option("--budgetAmount <value>", "Enter Budget Amount")
   .option("--budgetCurrency <value>", "Enter Budget Currency")
-  .option("--orgid <value", "Enter the Org ID Product belongs to")
+  .option("--orgid <value>", "Enter the Org ID Product belongs to")
+  .option("--description <value>", "Enter a description for the product")
   .action((cmd) => product.updateProduct(cmd));
 
 const commander = require("commander");

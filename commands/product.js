@@ -48,20 +48,16 @@ const product = {
   async addProduct(cmd) {
     // Check Required options have been provided.
 
-    if (
-      (cmd.code === undefined) |
-      (cmd.displayname === undefined) |
-      (cmd.platformid === undefined)
-    ) {
-      console.log("Need to provide --code, --displayname and --platformId".red);
+    if ((cmd.displayname === undefined) | (cmd.platformid === undefined)) {
+      console.log("Need to provide --displayname and --platformId".red);
       return;
     }
     try {
       const backplane = new BackplaneAPI();
 
       const product = await backplane.addProduct(
-        cmd.code,
         cmd.displayname,
+        cmd.description,
         cmd.platformid,
         cmd.ownerid,
         cmd.orgid
@@ -92,6 +88,7 @@ const product = {
         cmd.id,
         cmd.code,
         cmd.displayname,
+        cmd.description,
         cmd.platformid,
         cmd.ownerid,
         cmd.status,
