@@ -3,10 +3,10 @@ const TokenManager = require("../lib/TokenManager");
 const colors = require("colors");
 
 const assign = {
-  async getAssignments() {
+  async getAssignments(cmd) {
     try {
       const backplane = new BackplaneAPI();
-      const assignments = await backplane.getAssignments();
+      const assignments = await backplane.getAssignments(cmd.stringify);
 
       console.log(assignments);
     } catch (err) {

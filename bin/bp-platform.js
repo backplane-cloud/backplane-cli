@@ -7,7 +7,6 @@ program
   .command("list")
   .description("List platforms")
   .option("-s, --stringify", "Return as JSON string")
-
   .action(platform.getPlatforms);
 
 // GET

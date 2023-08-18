@@ -3,11 +3,10 @@ const TokenManager = require("../lib/TokenManager");
 const colors = require("colors");
 
 const service = {
-  async getServices() {
+  async getServices(cmd) {
     try {
       const backplane = new BackplaneAPI();
-      const services = await backplane.getServices();
-
+      const services = await backplane.getServices(cmd.stringify);
       console.log(services);
     } catch (err) {
       console.error(err.message.red);

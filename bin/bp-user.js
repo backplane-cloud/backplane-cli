@@ -2,7 +2,11 @@ const program = require("commander");
 const user = require("../commands/user");
 
 // GET all
-program.command("list").description("List users").action(user.getUsers);
+program
+  .command("list")
+  .description("List users")
+  .option("-s, --stringify", "Return as JSON string")
+  .action(user.getUsers);
 
 // GET
 program

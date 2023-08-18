@@ -5,6 +5,7 @@ const Service = require("../commands/service");
 program
   .command("list")
   .description("List Services")
+  .option("-s, --stringify", "Return as JSON string")
   .action(Service.getServices);
 
 // GET

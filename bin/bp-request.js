@@ -5,6 +5,7 @@ const Request = require("../commands/request");
 program
   .command("list")
   .description("List Requests")
+  .option("-s, --stringify", "Return as JSON string")
   .action(Request.getRequests);
 
 // GET

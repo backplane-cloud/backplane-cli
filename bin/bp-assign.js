@@ -5,6 +5,7 @@ const Assign = require("../commands/assign");
 program
   .command("list")
   .description("List Assignments")
+  .option("-s, --stringify", "Return as JSON string")
   .action(Assign.getAssignments);
 
 // GET

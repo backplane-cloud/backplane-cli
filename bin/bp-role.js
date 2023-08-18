@@ -29,7 +29,11 @@ function actionCommands() {
 }
 
 // GET all
-program.command("list").description("List roles").action(role.getRoles);
+program
+  .command("list")
+  .description("List roles")
+  .option("-s, --stringify", "Return as JSON string")
+  .action(role.getRoles);
 
 // GET
 program

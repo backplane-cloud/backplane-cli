@@ -3,13 +3,13 @@ const TokenManager = require("../lib/TokenManager");
 const colors = require("colors");
 
 const request = {
-  async getRequests() {
+  async getRequests(cmd) {
     try {
       const tokenManager = new TokenManager();
       const token = tokenManager.getToken();
 
       const backplane = new BackplaneAPI();
-      const requests = await backplane.getRequests(token);
+      const requests = await backplane.getRequests(cmd.all, cmd.stringify);
 
       console.log(requests);
     } catch (err) {

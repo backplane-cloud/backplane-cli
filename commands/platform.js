@@ -44,7 +44,7 @@ const platform = {
   async addPlatform(cmd) {
     // Check Required options have been provided.
 
-    if ((cmd.code === undefined) | (cmd.displayname === undefined)) {
+    if (cmd.displayname === undefined) {
       console.log("Need to provide --code and --displayname".red);
       return;
     }

@@ -54,13 +54,18 @@ function ownerCommands() {
 }
 
 // GET all
-program.command("list").description("List Teams").action(Team.getTeams);
+program
+  .command("list")
+  .description("List Teams")
+  .option("-s, --stringify", "Return as JSON string")
+  .action(Team.getTeams);
 
 // GET
 program
   .command("show")
   .description("Show a Team")
   .option("-i, --id <Team ID>", "Enter Team ID")
+  .option("-s, --stringify", "Return as JSON string")
   .action((cmd) => Team.getTeam(cmd));
 
 // GET

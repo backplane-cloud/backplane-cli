@@ -2,10 +2,10 @@ const BackplaneAPI = require("../lib/BackplaneAPI");
 const colors = require("colors");
 
 const role = {
-  async getRoles() {
+  async getRoles(cmd) {
     try {
       const backplane = new BackplaneAPI();
-      const roles = await backplane.getRoles();
+      const roles = await backplane.getRoles(cmd.stringify);
 
       console.log(roles);
     } catch (err) {
