@@ -47,13 +47,7 @@ const app = {
   async addApp(cmd) {
     // Check Required options have been provided.
 
-    if (
-      (cmd.code === undefined) |
-      (cmd.displayname === undefined) |
-      (cmd.orgid === undefined) |
-      (cmd.ownerid === undefined) |
-      (cmd.cloud === undefined)
-    ) {
+    if ((cmd.displayname === undefined) | (cmd.cloud === undefined)) {
       console.log(
         "Need to provide --code, --displayname, --orgid and --ownerid <owner ID>, --cloud [gcp|azure|aws]"
           .red
@@ -70,8 +64,6 @@ const app = {
         cmd.ownerid,
         cmd.cloud
       );
-
-      //console.log(`App ${app.name} has been successfully created`);
     } catch (err) {
       console.error(err.message.red);
     }

@@ -45,7 +45,7 @@ const platform = {
     // Check Required options have been provided.
 
     if (cmd.displayname === undefined) {
-      console.log("Need to provide --code and --displayname".red);
+      console.log("Need to provide --displayname".red);
       return;
     }
     try {

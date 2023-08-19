@@ -39,7 +39,7 @@ program
   .description("Creates a new Request")
 
   .option(
-    "--requestType <'applink' | 'exemption' | 'budget'>",
+    "--requestType <'link' | 'exemption' | 'budget'>",
     "Enter Request Type"
   )
 
