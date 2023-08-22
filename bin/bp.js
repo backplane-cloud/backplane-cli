@@ -27,7 +27,7 @@ program
 
   .command("", "\n----------[ Cloud Governance] ----------")
   .command("cost", "Cost Data for Org, Platform, Products and Apps".gray)
-  .command("policy", "Policy Data for apps*".gray)
+  .command("policy", "Policy Management")
   .command("access", "Cloud Access Management")
 
   .command("", "\n----------[ Marketplace Extensions ]----------".gray)
