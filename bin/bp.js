@@ -7,17 +7,17 @@ const colors = require("colors");
 program
   .version("1.0.0")
 
-  .command("", "\n----------[ Development ]----------")
+  .command("", "\n----------[ Developer ]----------")
   .command("app", "Manage Apps".yellow)
   .command("service", "Publish to Integration Services Catalog".yellow)
 
-  .command("", "\n----------[ Business Administration ]----------")
+  .command("", "\n----------[ Governance ]----------")
   .command("product", "Manage Products".green)
   .command("platform", "Manage Platforms".green)
   .command("org", "Manage Orgs".green)
   .command("request", "Manage Approval Requests".green)
 
-  .command("", "\n-----------[ Access Administration ]--------")
+  .command("", "\n-----------[ Access Management ]--------")
   .command("auth", "Login to Backplane".yellow)
   .command("token", "Manage API JWT Token".yellow)
   .command("user", "Manage Users".cyan)
