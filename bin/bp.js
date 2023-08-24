@@ -12,10 +12,10 @@ program
   .command("service", "Publish to Integration Services Catalog".yellow)
 
   .command("", "\n----------[ Governance ]----------")
-  .command("product", "Manage Products".green)
-  .command("platform", "Manage Platforms".green)
-  .command("org", "Manage Orgs".green)
-  .command("request", "Manage Approval Requests".green)
+  .command("product", "Manage Products")
+  .command("platform", "Manage Platforms")
+  .command("org", "Manage Orgs")
+  .command("request", "Manage Approval Requests")
 
   .command("", "\n-----------[ Access Management ]--------")
   .command("auth", "Login to Backplane".yellow)
@@ -27,10 +27,10 @@ program
 
   .command("", "\n----------[ Cloud Governance] ----------")
   .command("cost", "Cost Data for Org, Platform, Products and Apps".gray)
-  .command("policy", "Policy Management")
-  .command("access", "Cloud Access Management")
+  .command("policy", "Policy Management".green)
+  .command("access", "Cloud Access Management".green)
 
-  .command("", "\n----------[ Marketplace Extensions ]----------".gray)
+  .command("", "\n----------[ Extensions ]----------".gray)
   .command("gem", "General Exemption Manager".gray)
   .command("slim", "Software License Inventory Manager".gray)
   .command("game", "General Access Management Engine".gray)
