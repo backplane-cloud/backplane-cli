@@ -49,8 +49,7 @@ const app = {
 
     if ((cmd.displayname === undefined) | (cmd.cloud === undefined)) {
       console.log(
-        "Need to provide --code, --displayname, --orgid and --ownerid <owner ID>, --cloud [gcp|azure|aws]"
-          .red
+        "Need to provide --displayname, --cloud < gcp | azure | aws >".red
       );
       return;
     }
