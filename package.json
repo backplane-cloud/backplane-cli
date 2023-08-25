@@ -19,6 +19,11 @@
     "colors": "1.4.0",
     "commander": "^5.1.0",
     "configstore": "^5.0.1",
-    "inquirer": "^7.1.0"
+    "inquirer": "^7.1.0",
+    "pkg": "^5.8.1"
+  },
+  "pkg": {
+    "scripts": "./bin/bp.js",
+    "targets": "node14-linux-x64,node14-macos-x64,node14-win-x64"
   }
 }
