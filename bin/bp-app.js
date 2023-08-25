@@ -33,7 +33,7 @@ program
   .option("--orgid <value", "Enter Org ID")
   .option("--ownerid <value>", "Enter User ID")
   .option("--cloud <value>", "e.g. gcp | azure | aws")
-  .option("--type <App Type>", "e.g. default, saas etc.")
+  .option("--template <App Type>", "e.g. default, saas etc.")
   .action((cmd) => app.addApp(cmd));
 
 // Update

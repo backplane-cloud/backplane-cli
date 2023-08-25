@@ -62,7 +62,8 @@ const app = {
         cmd.displayname,
         cmd.orgid,
         cmd.ownerid,
-        cmd.cloud
+        cmd.cloud,
+        cmd.template
       );
     } catch (err) {
       console.error(err.message.red);
