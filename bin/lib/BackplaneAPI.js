@@ -1,5 +1,5 @@
 const axios = require("axios");
-const colors = require("colors");
+// const colors = require("colors");
 const TokenManager = require("../lib/TokenManager");
 
 class BackplaneAPI {

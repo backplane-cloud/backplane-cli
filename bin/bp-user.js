@@ -1,5 +1,5 @@
 const program = require("commander");
-const user = require("../commands/user");
+const user = require("./commands/user");
 
 // GET all
 program

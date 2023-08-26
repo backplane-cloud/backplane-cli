@@ -1,5 +1,5 @@
 const program = require("commander");
-const app = require("../commands/app");
+const app = require("./commands/app");
 const colors = require("colors");
 
 program

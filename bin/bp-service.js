@@ -1,5 +1,5 @@
 const program = require("commander");
-const Service = require("../commands/service");
+const Service = require("./commands/service");
 
 // GET all
 program

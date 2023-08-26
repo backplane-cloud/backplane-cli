@@ -1,5 +1,5 @@
 const program = require("commander");
-const role = require("../commands/role");
+const role = require("./commands/role");
 
 const commander = require("commander");
 

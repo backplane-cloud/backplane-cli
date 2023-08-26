@@ -1,12 +1,12 @@
 const BackplaneAPI = require("../lib/BackplaneAPI");
-const TokenManager = require("../lib/TokenManager");
-const colors = require("colors");
+// const TokenManager = require("../lib/TokenManager");
+// const colors = require("colors");
 
 const request = {
   async getRequests(cmd) {
     try {
-      const tokenManager = new TokenManager();
-      const token = tokenManager.getToken();
+      // const tokenManager = new TokenManager();
+      // const token = tokenManager.getToken();
 
       const backplane = new BackplaneAPI();
       const requests = await backplane.getRequests(cmd.all, cmd.stringify);

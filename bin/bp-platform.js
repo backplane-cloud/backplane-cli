@@ -1,6 +1,6 @@
 const program = require("commander");
-const platform = require("../commands/platform");
-const Request = require("../commands/request");
+const platform = require("./commands/platform");
+const Request = require("./commands/request");
 
 // GET all
 program

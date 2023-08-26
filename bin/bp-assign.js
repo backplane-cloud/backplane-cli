@@ -1,5 +1,5 @@
 const program = require("commander");
-const Assign = require("../commands/assign");
+const Assign = require("./commands/assign");
 
 // GET all
 program

@@ -1,6 +1,6 @@
 const program = require("commander");
-const app = require("../commands/app");
-const Request = require("../commands/request");
+const app = require("./commands/app");
+const Request = require("./commands/request");
 
 // GET all
 program

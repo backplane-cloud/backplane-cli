@@ -1,5 +1,5 @@
 const program = require("commander");
-const Team = require("../commands/team");
+const Team = require("./commands/team");
 
 const commander = require("commander");
 

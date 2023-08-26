@@ -1,5 +1,5 @@
 const program = require("commander");
-const token = require("../commands/token");
+const token = require("./commands/token");
 
 program
   .command("set")

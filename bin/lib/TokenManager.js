@@ -1,7 +1,7 @@
 const Configstore = require("configstore");
-const colors = require("colors");
+// const colors = require("colors");
 
-const pkg = require("../package.json"); //assert { type: "json" };
+const pkg = require("../../package.json"); //assert { type: "json" };
 
 class TokenManager {
   constructor() {
