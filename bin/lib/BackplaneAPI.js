@@ -26,16 +26,21 @@ class BackplaneAPI {
 
       return res.data;
     } catch (err) {
-      console.error(err);
+      //console.error(err);
+      logger.error(err);
     }
   }
 
   async logout(email, password) {
     try {
-      const res = await axios.post(`${this.baseUrl}/users/logout`, {
-        email,
-        password,
-      });
+      const res = await axios.post(
+        `${this.baseUrl}/users/logout`,
+        {
+          email,
+          password,
+        },
+        this.data
+      );
 
       return res.data;
     } catch (err) {

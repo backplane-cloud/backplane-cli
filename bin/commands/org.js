@@ -10,7 +10,7 @@ const org = {
       const orgs = await backplane.getOrgs(cmd.stringify);
       console.log(orgs);
     } catch (err) {
-      console.error(err.message.red);
+      //console.error(err.message.red);
     }
   },
 

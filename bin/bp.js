@@ -11,7 +11,7 @@ program
   .command("app", "Manage Apps".yellow)
   .command("service", "Publish to Integration Services Catalog".yellow)
 
-  .command("", "\n----------[ Governance ]----------")
+  .command("", "\n----------[ Administration ]----------")
   .command("product", "Manage Products")
   .command("platform", "Manage Platforms")
   .command("org", "Manage Orgs")

@@ -33,6 +33,8 @@ const auth = {
       const tokenManager = new TokenManager();
       tokenManager.deleteToken();
       console.log("Token has been removed".blue);
+      // const backplane = new BackplaneAPI();
+      // await backplane.logout();
     } catch (err) {
       console.error(err.message.red);
     }
