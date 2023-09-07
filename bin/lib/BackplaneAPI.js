@@ -545,7 +545,11 @@ class BackplaneAPI {
         orgName,
       };
 
-      const res = await axios.post(`${this.baseUrl}/users`, userObj, this.data);
+      const res = await axios.post(
+        `${this.baseUrl}/users/register`,
+        userObj,
+        this.data
+      );
 
       console.log(userObj, "User successfully created");
 
