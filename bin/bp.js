@@ -3,7 +3,6 @@
 const program = require("commander");
 const pkg = require("../package.json");
 const colors = require("colors");
-
 program
   .version("1.0.0")
 
