@@ -799,6 +799,203 @@ class BackplaneAPI {
     }
   }
 
+  // BACKLOGS
+  async getBacklogs(stringify) {
+    try {
+      const res = await axios.get(`${this.baseUrl}/backlogs`, this.data);
+      //console.log(`${res.data.length} Backlog/s found: `.yellow);
+      let data;
+      stringify ? (data = JSON.stringify(res.data)) : (data = res.data);
+      return data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async getBacklogSprints(id) {
+    try {
+      const res = await axios.get(`${this.baseUrl}/backlogs/${id}`, this.data);
+      //console.log(`${res.data.length} Backlog/s found: `.yellow);
+      // let data;
+      // stringify ? (data = JSON.stringify(res.data)) : (data = res.data);
+      return res.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+  async getBacklogItems(id) {
+    try {
+      const res = await axios.get(
+        `${this.baseUrl}/backlogs/${id}/items`,
+        this.data
+      );
+      //console.log(`${res.data.length} Backlog/s found: `.yellow);
+      // let data;
+      // stringify ? (data = JSON.stringify(res.data)) : (data = res.data);
+      return res.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async getBacklog(id) {
+    try {
+      const res = await axios.get(`${this.baseUrl}/backlogs/${id}`, this.data);
+      return res.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async deleteBacklog(id) {
+    try {
+      const res = await axios.delete(
+        `${this.baseUrl}/backlogs/${id}`,
+        this.data
+      );
+      return res.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async addBacklog(orgId, productId, ownerId, sprintDuration) {
+    try {
+      let backlogObj = {
+        orgId,
+        productId,
+        ownerId,
+        sprintDuration,
+      };
+
+      const res = await axios.post(
+        `${this.baseUrl}/backlogs`,
+        backlogObj,
+        this.data
+      );
+
+      console.log(backlogObj, "Backlog successfully created");
+
+      return res.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async addBacklogSprint(
+    orgId,
+    backlogId,
+    productId,
+    ownerId,
+    startDate,
+    endDate,
+    sprintGoal,
+    status,
+    iteration
+  ) {
+    try {
+      let backlogObj = {
+        orgId,
+        backlogId,
+        productId,
+        ownerId,
+        startDate,
+        endDate,
+        sprintGoal,
+        status,
+        iteration,
+      };
+
+      const res = await axios.post(
+        `${this.baseUrl}/backlogs/${backlogId}/sprints`,
+        backlogObj,
+        this.data
+      );
+
+      console.log(backlogObj, "Backlog successfully created");
+
+      return res.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async addBacklogItem(
+    displayname,
+    description,
+    type,
+    ownerId,
+    assignedTo,
+    orgId,
+    status,
+    points,
+    sprint,
+    productId,
+    backlogId
+  ) {
+    try {
+      let backlogObj = {
+        name: displayname,
+        description,
+        type,
+        ownerId,
+        assignedTo,
+        orgId,
+        status,
+        points,
+        sprint,
+        productId,
+        backlogId,
+      };
+
+      const res = await axios.post(
+        `${this.baseUrl}/backlogs/${backlogId}/items`,
+        backlogObj,
+        this.data
+      );
+
+      console.log(backlogObj, "Backlog Item successfully created");
+
+      return res.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async updateBacklog(
+    id,
+    code,
+    displayname,
+    description,
+    url,
+    apikey,
+    orgId,
+    ownerId
+  ) {
+    try {
+      let backlogObj = {
+        code,
+        name: displayname,
+        description,
+        url,
+        apikey,
+        orgId,
+        ownerId,
+      };
+
+      const res = await axios.put(
+        `${this.baseUrl}/backlogs/${id}`,
+        backlogObj,
+        this.data
+      );
+      console.log(res.data);
+      console.log("Updated successfully".green);
+      return res.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   // TEAMS
   async getTeams(stringify) {
     try {
