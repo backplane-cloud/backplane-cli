@@ -84,7 +84,16 @@ function itemCommands() {
     .command("list")
     .description("List Backlog Items for Backlog")
     .option("-i, --id <Backlog ID>", "Enter Backlog ID")
+    .option(
+      "-t, --type <Backlog Type",
+      "Valid values: epic, feature, userstory, bug"
+    )
     .action((cmd) => Backlog.getBacklogItems(cmd));
+  item
+    .command("show")
+    .description("Show a Backlog Item")
+    .option("-i, --id <Backlog Item ID>", "Enter Backlog Item ID")
+    .action((cmd) => Backlog.getBacklogItem(cmd));
 
   item
     .command("add")

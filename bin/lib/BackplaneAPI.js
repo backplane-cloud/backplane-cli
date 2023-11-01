@@ -823,15 +823,37 @@ class BackplaneAPI {
       console.error(err);
     }
   }
-  async getBacklogItems(id) {
+  async getBacklogItems(id, type) {
+    console.log("type:", type);
     try {
-      const res = await axios.get(
-        `${this.baseUrl}/backlogs/${id}/items`,
-        this.data
-      );
+      let res;
+      if (type) {
+        res = await axios.get(
+          `${this.baseUrl}/backlogs/${id}/items?filter=${type}`,
+          this.data
+        );
+      } else {
+        res = await axios.get(
+          `${this.baseUrl}/backlogs/${id}/items`,
+          this.data
+        );
+      }
+
       //console.log(`${res.data.length} Backlog/s found: `.yellow);
       // let data;
       // stringify ? (data = JSON.stringify(res.data)) : (data = res.data);
+      return res.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async getBacklogItem(id) {
+    try {
+      const res = await axios.get(
+        `${this.baseUrl}/backlogs/items/${id}`,
+        this.data
+      );
       return res.data;
     } catch (err) {
       console.error(err);

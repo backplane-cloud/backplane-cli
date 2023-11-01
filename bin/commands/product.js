@@ -1,6 +1,6 @@
 const BackplaneAPI = require("../lib/BackplaneAPI");
 // const TokenManager = require("../lib/TokenManager");
-// const colors = require("colors");
+const colors = require("colors");
 
 const product = {
   async getProducts(cmd) {
@@ -48,10 +48,11 @@ const product = {
   async addProduct(cmd) {
     // Check Required options have been provided.
 
-    if ((cmd.displayname === undefined) | (cmd.platformid === undefined)) {
+    if (cmd.platformid === undefined) {
       console.log("Need to provide --displayname and --platformId".red);
       return;
     }
+
     try {
       const backplane = new BackplaneAPI();
 

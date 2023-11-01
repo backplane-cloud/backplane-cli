@@ -9,6 +9,7 @@ program
   .command("", "\n----------[ Developer ]----------")
   .command("app", "Manage Apps".yellow)
   .command("service", "Publish to Integration Services Catalog".yellow)
+  .command("backlog", "Product Backlog ".cyan)
 
   .command("", "\n----------[ Administration ]----------")
   .command("product", "Manage Products")
@@ -38,7 +39,6 @@ program
   .command("oopa", "Open Onboarding Platform API".gray)
   .command("graph", "Cloud Graph".gray)
   .command("what", "Who has access to What ?".gray)
-  .command("backlog", "Product Backlog management and workflows".gray)
 
   .command("", "\n----------[ Documentation ]----------")
   .command("getting-started", "Getting Started User Guide")

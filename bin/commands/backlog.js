@@ -24,7 +24,7 @@ const backlog = {
   async getBacklogItems(cmd) {
     try {
       const backplane = new BackplaneAPI();
-      const backlogItems = await backplane.getBacklogItems(cmd.id);
+      const backlogItems = await backplane.getBacklogItems(cmd.id, cmd.type);
       console.log(backlogItems);
     } catch (err) {
       console.error(err.message.red);
@@ -41,6 +41,20 @@ const backlog = {
       const backlogs = await backplane.getBacklog(cmd.id);
 
       console.log(backlogs);
+    } catch (err) {
+      console.error(err.message.red);
+    }
+  },
+  async getBacklogItem(cmd) {
+    if (cmd.id === undefined) {
+      console.log("Missing backlog ID, use --id <backlog id>".red);
+      return;
+    }
+    try {
+      const backplane = new BackplaneAPI();
+      const backlogItem = await backplane.getBacklogItem(cmd.id);
+
+      console.log(backlogItem);
     } catch (err) {
       console.error(err.message.red);
     }
