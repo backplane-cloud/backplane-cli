@@ -109,6 +109,10 @@ function itemCommands() {
     .option("--sprint <1,2,3>", "Enter Sprint Iteration")
     .option("--status <1,2,3>", "Enter Item Status")
     .option("--points <1,2,3>", "Enter Points if Type is User Story")
+    .option(
+      "--parentid <BacklogItem ID",
+      "User Story -> Feature, Feature -> Epic"
+    )
     .action((cmd) => Backlog.addBacklogItem(cmd));
 
   return item;

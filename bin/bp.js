@@ -9,13 +9,13 @@ program
   .command("", "\n----------[ Developer ]----------")
   .command("app", "Manage Apps".yellow)
   .command("service", "Publish to Integration Services Catalog".yellow)
-  .command("backlog", "Product Backlog ".cyan)
 
   .command("", "\n----------[ Administration ]----------")
   .command("product", "Manage Products")
   .command("platform", "Manage Platforms")
   .command("org", "Manage Orgs")
   .command("request", "Manage Approval Requests")
+  .command("backlog", "Manage Product Backlog, Sprints and Items")
 
   .command("", "\n-----------[ Access Management ]--------")
   .command("auth", "Login to Backplane".yellow)

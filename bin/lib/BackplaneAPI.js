@@ -814,7 +814,10 @@ class BackplaneAPI {
 
   async getBacklogSprints(id) {
     try {
-      const res = await axios.get(`${this.baseUrl}/backlogs/${id}`, this.data);
+      const res = await axios.get(
+        `${this.baseUrl}/backlogs/${id}/sprints`,
+        this.data
+      );
       //console.log(`${res.data.length} Backlog/s found: `.yellow);
       // let data;
       // stringify ? (data = JSON.stringify(res.data)) : (data = res.data);
@@ -824,7 +827,6 @@ class BackplaneAPI {
     }
   }
   async getBacklogItems(id, type) {
-    console.log("type:", type);
     try {
       let res;
       if (type) {
@@ -953,7 +955,8 @@ class BackplaneAPI {
     points,
     sprint,
     productId,
-    backlogId
+    backlogId,
+    parentId
   ) {
     try {
       let backlogObj = {
@@ -968,6 +971,7 @@ class BackplaneAPI {
         sprint,
         productId,
         backlogId,
+        parentId,
       };
 
       const res = await axios.post(

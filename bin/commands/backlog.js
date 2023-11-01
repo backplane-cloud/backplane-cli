@@ -181,7 +181,8 @@ const backlog = {
         cmd.points,
         cmd.sprint,
         cmd.productid,
-        cmd.backlogid
+        cmd.backlogid,
+        cmd.parentid
       );
 
       //console.log(`backlog ${backlog.name} has been successfully created`);
