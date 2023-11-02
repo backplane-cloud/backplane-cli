@@ -13,6 +13,7 @@ program
   .command("show")
   .description("Show a Backlog")
   .option("-i, --id <Backlog ID>", "Enter Backlog ID")
+  .option("-c, --code <Product Code>", "Enter Product Code")
   .action((cmd) => Backlog.getBacklog(cmd));
 
 // DELETE

@@ -1,6 +1,6 @@
 const BackplaneAPI = require("../lib/BackplaneAPI");
 // const TokenManager = require("../lib/TokenManager");
-// const colors = require("colors");
+const colors = require("colors");
 
 const backlog = {
   async getBacklogs(cmd) {
@@ -32,13 +32,14 @@ const backlog = {
   },
 
   async getBacklog(cmd) {
-    if (cmd.id === undefined) {
+    if (cmd.id === undefined && cmd.code === undefined) {
       console.log("Missing backlog ID, use --id <backlog id>".red);
       return;
     }
+
     try {
       const backplane = new BackplaneAPI();
-      const backlogs = await backplane.getBacklog(cmd.id);
+      const backlogs = await backplane.getBacklog(cmd.id ? cmd.id : cmd.code);
 
       console.log(backlogs);
     } catch (err) {
