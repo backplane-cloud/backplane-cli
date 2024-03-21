@@ -1,5 +1,5 @@
 const BackplaneAPI = require("../lib/BackplaneAPI");
-// const colors = require("colors");
+const colors = require("colors");
 
 const user = {
   async getUsers(cmd) {
@@ -81,9 +81,12 @@ const user = {
     if (
       (cmd.displayname === undefined) |
       (cmd.email === undefined) |
-      (cmd.password === undefined)
+      (cmd.password === undefined) |
+      (cmd.orgname === undefined)
     ) {
-      console.log("Need to provide --displayname, --email and --password".red);
+      console.log(
+        "Need to provide --displayname, --email, --password and --orgname".red
+      );
       return;
     }
     try {
