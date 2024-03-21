@@ -1,6 +1,6 @@
 {
-  "name": "backplane-cli",
-  "version": "1.0.0",
+  "name": "@backplane-software/backplane-cli",
+  "version": "0.1.0",
   "description": "Backplane CLI",
   "main": "./bin/bp.js",
   "bin": {
@@ -13,7 +13,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "lewis@backplane.cloud",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.27.2",
     "colors": "1.4.0",
@@ -27,5 +27,18 @@
     "assets": [
       "./node_modules/axios/dist/node/axios.cjs"
     ]
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/backplane-cloud/backplane-cli.git"
+  },
+  "keywords": [
+    "backplane",
+    "cli"
+  ],
+  "bugs": {
+    "url": "https://github.com/backplane-cloud/backplane-cli/issues"
+  },
+  "homepage": "https://github.com/backplane-cloud/backplane-cli#readme"
 }

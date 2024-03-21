@@ -1,5 +1,5 @@
 const inquirer = require("inquirer");
-// const colors = require("colors");
+const colors = require("colors");
 const TokenManager = require("../lib/TokenManager");
 const { isRequired } = require("../utils/validation");
 

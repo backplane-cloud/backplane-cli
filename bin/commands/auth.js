@@ -4,6 +4,34 @@ const TokenManager = require("../lib/TokenManager");
 // const backplaneAPI = new BackplaneAPI();
 
 const auth = {
+  async setserver(cmd) {
+    if (cmd.server === undefined) {
+      console.log("Missing server, use --server <server> ");
+      return;
+    }
+
+    try {
+      // Store Server in Token Manager
+      const tokenManager = new TokenManager();
+      tokenManager.setServer(cmd.server);
+
+      console.log("Server Set Successful", cmd.server);
+    } catch (err) {
+      console.error(err.message.red);
+    }
+  },
+
+  async server() {
+    try {
+      // Store Server in Token Manager
+      const tokenManager = new TokenManager();
+      const server = tokenManager.getServer();
+      console.log(server === "" ? "http://localhost:8000/api" : server);
+    } catch (err) {
+      console.error(err.message.red);
+    }
+  },
+
   async login(cmd) {
     if (cmd.password === undefined || cmd.email === undefined) {
       console.log(

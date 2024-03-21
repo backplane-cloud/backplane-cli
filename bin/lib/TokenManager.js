@@ -15,6 +15,20 @@ class TokenManager {
     return token;
   }
 
+  setServer(server, orgid) {
+    this.conf.set("server", server);
+
+    //this.conf.set("orgid", orgid);
+    return server;
+  }
+
+  getServer() {
+    const server = this.conf.get("server");
+    // //this.conf.set("orgid", orgid);
+    // console.log("hi", this.conf.get("server"));
+    return server;
+  }
+
   getToken() {
     const token = this.conf.get("token");
     // if (!token) {

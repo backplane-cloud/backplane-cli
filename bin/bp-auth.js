@@ -16,4 +16,15 @@ program
 
 program.command("me").description("Check Logged in User").action(auth.me);
 
+program
+  .command("setserver")
+  .description("Specify the Server URL")
+  .action(auth.setserver)
+  .option("-s, --server <server>", "Set Server URL");
+
+program
+  .command("server")
+  .description("Shows the API Server End Point")
+  .action(auth.server);
+
 program.parse(process.argv);

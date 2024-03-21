@@ -1,6 +1,7 @@
 const axios = require("axios");
 // const colors = require("colors");
 const TokenManager = require("../lib/TokenManager");
+const pkg = require("../../package.json"); //assert { type: "json" };
 
 class BackplaneAPI {
   constructor() {
@@ -12,8 +13,12 @@ class BackplaneAPI {
         Authorization: "Bearer " + this.token,
       },
     };
-    this.baseUrl = "http://localhost:8000/api";
-    //this.baseUrl = "https://api.backplane.dev/api";
+
+    const url = tokenManager.getServer();
+    this.baseUrl = url === "" ? "http://localhost:8000/api" : url;
+    // console.log("baseurl is:", this.baseUrl);
+    // this.baseUrl = "http://localhost:8000/api";
+    // this.baseUrl = "https://api.backplane.dev/api";
   }
 
   async login(email, password) {
