@@ -1,5 +1,5 @@
 const BackplaneAPI = require("../lib/BackplaneAPI");
-// const colors = require("colors");
+const colors = require("colors");
 
 const app = {
   async getApps(cmd) {
