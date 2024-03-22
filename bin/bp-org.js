@@ -52,6 +52,13 @@ program
   .option("--budgetYear <value>", "Enter Budget Year")
   .option("--budgetAmount <value>", "Enter Budget Amount")
   .option("--budgetCurrency <value>", "Enter Budget Currency")
+  .option(
+    "--provider <value>",
+    "Enter Cloud Service Provider e.g. azure, gcp or aws"
+  )
+  .option("--tenantid <value>", "Enter Tenant ID")
+  .option("--clientid <value>", "Enter Client ID")
+  .option("--clientsecret <value>", "Enter Client Secret")
   .action((cmd) => org.updateOrg(cmd));
 
 const commander = require("commander");

@@ -138,7 +138,7 @@ class BackplaneAPI {
     }
   }
 
-  async updateOrg(id, code, displayname, license, owner, status, budget) {
+  async updateOrg(id, code, displayname, license, owner, status, budget, csp) {
     try {
       let orgObj = {
         code,
@@ -147,6 +147,7 @@ class BackplaneAPI {
         owner,
         status,
         budget,
+        csp,
       };
 
       const res = await axios.put(

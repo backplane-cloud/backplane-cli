@@ -93,6 +93,13 @@ const org = {
         currency: cmd.budgetCurrency,
       };
 
+      const csp = {
+        provider: cmd.provider,
+        tenantId: cmd.tenantid,
+        clientId: cmd.clientid,
+        clientSecret: cmd.clientsecret,
+      };
+
       await backplane.updateOrg(
         cmd.id,
         cmd.code,
@@ -100,7 +107,8 @@ const org = {
         cmd.license,
         cmd.owner,
         cmd.status,
-        budget
+        budget,
+        csp
       );
 
       //console.log(`Org ${org.name} has been successfully created`);
