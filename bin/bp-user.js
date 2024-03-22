@@ -37,12 +37,15 @@ program
 program
   .command("register")
   .description("Registers a new user")
-  .option("--displayname <value>", "Enter user display name e.g. 'My user X'")
-  .option("--email <value>", "Enter user code e.g. my-user-x")
-  .option("--password <value>", "Enter User ID")
+  .option(
+    "-d, --displayname <value>",
+    "Enter user display name e.g. 'My user X'"
+  )
+  .option("-e, --email <value>", "Enter user code e.g. my-user-x")
+  .option("-p, --password <value>", "Enter User ID")
   //.option("--orgid <value", "Enter Org ID")
-  .option("--usertype <value>", "Developer, ProductOwner, Root etc.")
-  .option("--orgname <value", "Org Displayname")
+  .option("-u, --usertype <value>", "Developer, ProductOwner, Root etc.")
+  .option("-o, --orgname <value", "Org Displayname")
   .action((cmd) => user.registerUser(cmd));
 
 // Update
