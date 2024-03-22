@@ -49,7 +49,7 @@ const product = {
     // Check Required options have been provided.
 
     if (cmd.platformid === undefined) {
-      console.log("Need to provide --displayname and --platformId".red);
+      console.log("Need to provide --displayname and --platformid".red);
       return;
     }
 
