@@ -98,6 +98,7 @@ const org = {
         tenantId: cmd.tenantid,
         clientId: cmd.clientid,
         clientSecret: cmd.clientsecret,
+        subscriptionId: cmd.subscriptionid,
       };
 
       await backplane.updateOrg(

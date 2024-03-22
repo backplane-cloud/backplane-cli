@@ -59,6 +59,7 @@ program
   .option("--tenantid <value>", "Enter Tenant ID")
   .option("--clientid <value>", "Enter Client ID")
   .option("--clientsecret <value>", "Enter Client Secret")
+  .option("--subscriptionid <value>", "Enter Default Subscription ID")
   .action((cmd) => org.updateOrg(cmd));
 
 const commander = require("commander");
