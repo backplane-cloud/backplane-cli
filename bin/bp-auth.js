@@ -14,7 +14,7 @@ program
   .description("Logout from Backplane")
   .action(auth.logout);
 
-program.command("me").description("Check Logged in User").action(auth.me);
+program.command("whoami").description("Check Logged in User").action(auth.me);
 
 program
   .command("setserver")
