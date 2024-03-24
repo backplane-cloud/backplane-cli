@@ -2,30 +2,21 @@ const pkg = require("../package.json");
 
 const colors = require("colors");
 
-const logo = ` ______              _           _                    
-(____  \            | |         | |                   
- ____)  )_____  ____| |  _ ____ | | _____ ____  _____ 
-|  __  ((____ |/ ___) |_/ )  _ \| |(____ |  _ \| ___ |
-| |__)  ) ___ ( (___|  _ (| |_| | |/ ___ | | | | ____|
-|______/\_____|\____)_| \_)  __/ \_)_____|_| |_|_____)
-                          |_|`.cyan;
+const logo = `Backplane CLI`.cyan;
 console.clear();
 
 console.log(logo);
 
 const about = ` 
+To get started, you can register your first user:
 
+bp user register --displayname <DisplayName> --email <EmailAddress> --password <Password> --orgname <OrganisationName>
 
-Backplane is a cross-cloud abstraction API, cloud environment provisioning, 
-governance and development platform. 
+For full documentation, visit https://backplane.dev/quick-start
 
-Backplane Core is provided Open Source with enterprise premium features 
-available under a subscription-based license (Backplane X)
-
-
-Backplane CLI Version: ${pkg.version}
-Author: ${pkg.author}
-Github: https://github.com/backplane-cloud/
+CLI version: ${pkg.version}
+Package Name: ${pkg.name}
+Github: ${pkg.homepage}
 `;
 console.log(about);
-console.log(`Backplane Cloud\nAll Rights Reserved 2023\n`.gray);
+console.log(`Backplane Software (c) - 2024\n`);
