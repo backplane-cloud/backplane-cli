@@ -6,7 +6,7 @@ program
   .command("login")
   .description("Login to Backplane")
   .option("-e, --email <email>", "Use Email Address")
-  .option("-p, --password <password>", " Enter Password")
+  .option("-p, --password <password>", "Enter Password")
   .action((cmd) => auth.login(cmd));
 
 program

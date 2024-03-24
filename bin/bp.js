@@ -16,6 +16,7 @@ program
   .command("org", "Manage Orgs")
   .command("request", "Manage Approval Requests")
   .command("backlog", "Manage Product Backlog, Sprints and Items")
+  .command("cloud", "Register Cloud Service Provider")
 
   .command("", "\n-----------[ Access Management ]--------")
   .command("auth", "Login to Backplane".yellow)
