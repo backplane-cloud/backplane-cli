@@ -16,4 +16,12 @@ program
   .requiredOption("--subscriptionid <value>", "Enter Default Subscription GUID")
   .action((cmd) => org.updateOrg(cmd));
 
+// UPDATE
+program
+  .command("list")
+  .description("List Cloud Service Provider")
+  .requiredOption("-i, --id <Org ID>", "Enter Org ID")
+
+  .action((cmd) => org.getOrgCSP(cmd));
+
 program.parse(process.argv);

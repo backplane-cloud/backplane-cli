@@ -35,6 +35,27 @@ const org = {
     }
   },
 
+  async getOrgCSP(cmd) {
+    if ((cmd.id === undefined) & (cmd.code === undefined)) {
+      console.log(
+        "Please provide either an Org ID e.g. --id <org id> or --code <org code>"
+      );
+      return;
+    }
+
+    try {
+      const backplane = new BackplaneAPI();
+      const org = await backplane.getOrg(
+        cmd.id ? cmd.id : cmd.code,
+        cmd.stringify
+      );
+
+      console.log(org.csp);
+    } catch (err) {
+      console.error(err.message.red);
+    }
+  },
+
   async deleteOrg(cmd) {
     if (cmd.id === undefined) {
       console.log("Missing Org ID, use --id <org id>");
