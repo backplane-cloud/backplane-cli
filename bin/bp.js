@@ -4,7 +4,7 @@ const program = require("commander");
 const pkg = require("../package.json");
 const colors = require("colors");
 program
-  .version("1.0.0")
+  .version(`${pkg.version}`)
 
   .command("", "\n----------[ Developer ]----------")
   .command("app", "Manage Apps".yellow)
