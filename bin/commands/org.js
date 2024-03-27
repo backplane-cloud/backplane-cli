@@ -1,4 +1,5 @@
 const BackplaneAPI = require("../lib/BackplaneAPI");
+const fs = require("fs");
 // const colors = require("colors");
 
 //const backplaneAPI = new BackplaneAPI();
@@ -49,8 +50,8 @@ const org = {
         cmd.id ? cmd.id : cmd.code,
         cmd.stringify
       );
-
-      console.log(org.csp);
+      const csp = org.csp.find((item) => item.provider === cmd.parent._name);
+      console.log(csp);
     } catch (err) {
       console.error(err.message.red);
     }
@@ -132,6 +133,68 @@ const org = {
         budget,
         csp
       );
+
+      //console.log(`Org ${org.name} has been successfully created`);
+    } catch (err) {
+      console.error(err.message.red);
+    }
+  },
+
+  async updateOrgCSP(cmd) {
+    // Check Required options have been provided.
+    if (cmd.id === undefined) {
+      console.log("Need to provide --id".red);
+      return;
+    }
+
+    try {
+      const backplane = new BackplaneAPI();
+      const org = await backplane.getOrg(
+        cmd.id ? cmd.id : cmd.code,
+        cmd.stringify
+      );
+
+      const retain = [];
+      retain.push(org.csp.find((item) => item.provider != cmd.parent._name));
+
+      let csp;
+      if (cmd.parent._name === "azure") {
+        csp = {
+          provider: "azure",
+          tenantId: cmd.tenantid,
+          clientId: cmd.clientid,
+          clientSecret: cmd.clientsecret,
+          subscriptionId: cmd.subscriptionid,
+        };
+        retain.push(csp);
+      }
+
+      if (cmd.parent._name === "gcp") {
+        try {
+          // Read the JSON file synchronously
+          const data = fs.readFileSync(cmd.gcpsecret, "utf8");
+
+          // Parse the JSON data
+          const jsonData = JSON.parse(data);
+
+          // Output the JSON data
+          // console.log(jsonData);
+          // return;
+          csp = {
+            provider: "gcp",
+            tenantId: cmd.tenantid,
+            gcpsecret: jsonData,
+          };
+        } catch (error) {
+          console.error("Error reading JSON file:", error.message);
+        }
+
+        retain.push(csp);
+      }
+
+      csp = retain;
+
+      await backplane.updateOrgCSP(cmd.id, csp);
 
       //console.log(`Org ${org.name} has been successfully created`);
     } catch (err) {

@@ -1,27 +1,80 @@
 const program = require("commander");
 const org = require("./commands/org");
 
-// UPDATE
-program
-  .command("add")
-  .description("Add Cloud Service Provider")
-  .requiredOption("-i, --id <Org ID>", "Enter Org ID")
-  .requiredOption(
-    "--provider <value>",
-    "Enter Cloud Service Provider e.g. azure, gcp or aws"
-  )
-  .requiredOption("--tenantid <value>", "Enter Tenant ID")
-  .requiredOption("--clientid <value>", "Enter Client ID")
-  .requiredOption("--clientsecret <value>", "Enter Client Secret")
-  .requiredOption("--subscriptionid <value>", "Enter Default Subscription GUID")
-  .action((cmd) => org.updateOrg(cmd));
+// // UPDATE
+// program
+//   .command("add")
+//   .description("Add Cloud Service Provider")
+//   .requiredOption("-i, --id <Org ID>", "Enter Org ID")
+//   .requiredOption(
+//     "--provider <value>",
+//     "Enter Cloud Service Provider e.g. azure, gcp or aws"
+//   )
+//   .requiredOption("--tenantid <value>", "Enter Tenant ID")
+//   .requiredOption("--clientid <value>", "Enter Client ID")
+//   .requiredOption("--clientsecret <value>", "Enter Client Secret")
+//   .requiredOption("--subscriptionid <value>", "Enter Default Subscription GUID")
+//   .option("--gcpsecret <value>", "Enter Path to JSON Credentials")
+//   .action((cmd) => org.updateOrg(cmd));
 
-// UPDATE
-program
-  .command("list")
-  .description("List Cloud Service Provider")
-  .requiredOption("-i, --id <Org ID>", "Enter Org ID")
+// // LIST
+// program
+//   .command("list")
+//   .description("List Cloud Service Provider")
+//   .requiredOption("-i, --id <Org ID>", "Enter Org ID")
 
-  .action((cmd) => org.getOrgCSP(cmd));
+//   .action((cmd) => org.getOrgCSP(cmd));
+
+const commander = require("commander");
+
+function azureCommands() {
+  const azure = new commander.Command("azure");
+  azure
+    .command("list")
+    .description("List Cloud Service Provider")
+    .requiredOption("-i, --id <Org ID>", "Enter Org ID")
+    .action((cmd) => org.getOrgCSP(cmd));
+
+  azure
+    .command("add")
+    .description("Add Cloud Service Provider")
+    .requiredOption("-i, --id <Org ID>", "Enter Org ID")
+    .requiredOption("--tenantid <value>", "Enter Tenant ID")
+    .requiredOption("--clientid <value>", "Enter Client ID")
+    .requiredOption("--clientsecret <value>", "Enter Client Secret")
+    .requiredOption(
+      "--subscriptionid <value>",
+      "Enter Default Subscription GUID"
+    )
+    .action((cmd) => org.updateOrgCSP(cmd));
+
+  return azure;
+}
+
+program.addCommand(azureCommands());
+
+function gcpCommands() {
+  const gcp = new commander.Command("gcp");
+  gcp
+
+    .command("list")
+    .description("List Cloud Service Provider")
+    .requiredOption("-i, --id <Org ID>", "Enter Org ID")
+
+    .action((cmd) => org.getOrgCSP(cmd));
+
+  gcp
+
+    .command("add")
+    .description("Add Cloud Service Provider")
+    .requiredOption("-i, --id <Org ID>", "Enter Org ID")
+    .requiredOption("--tenantid <value>", "Enter Tenant ID")
+    .option("--gcpsecret <value>", "Enter Path to JSON Credentials")
+    .action((cmd) => org.updateOrgCSP(cmd));
+
+  return gcp;
+}
+
+program.addCommand(gcpCommands());
 
 program.parse(process.argv);

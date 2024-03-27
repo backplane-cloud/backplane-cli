@@ -163,6 +163,25 @@ class BackplaneAPI {
     }
   }
 
+  async updateOrgCSP(id, csp) {
+    try {
+      let orgObj = {
+        csp,
+      };
+
+      const res = await axios.put(
+        `${this.baseUrl}/orgs/${id}`,
+        orgObj,
+        this.data
+      );
+      // console.log(res.data);
+      //console.log("Updated successfully".green);
+      return res.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   // PLATFORMS
   async getPlatforms(stringify) {
     try {
