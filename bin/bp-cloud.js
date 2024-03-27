@@ -77,4 +77,25 @@ function gcpCommands() {
 
 program.addCommand(gcpCommands());
 
+function awsCommands() {
+  const aws = new commander.Command("aws");
+  aws
+    .command("list")
+    .description("List Cloud Service Provider")
+    .requiredOption("-i, --id <Org ID>", "Enter Org ID")
+    .action((cmd) => org.getOrgCSP(cmd));
+
+  aws
+    .command("add")
+    .description("Add Cloud Service Provider")
+    .requiredOption("-i, --id <Org ID>", "Enter Org ID")
+    .requiredOption("--clientid <value>", "Access Key ID")
+    .option("--clientsecret <value>", "Secret Access Key")
+    .action((cmd) => org.updateOrgCSP(cmd));
+
+  return aws;
+}
+
+program.addCommand(awsCommands());
+
 program.parse(process.argv);

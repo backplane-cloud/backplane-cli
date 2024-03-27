@@ -169,12 +169,14 @@ class BackplaneAPI {
         csp,
       };
 
+      // console.log(orgObj);
+      // return;
       const res = await axios.put(
         `${this.baseUrl}/orgs/${id}`,
         orgObj,
         this.data
       );
-      // console.log(res.data);
+      console.log(res.data);
       //console.log("Updated successfully".green);
       return res.data;
     } catch (err) {

@@ -154,10 +154,13 @@ const org = {
         cmd.stringify
       );
 
-      const retain = [];
-      retain.push(org.csp.find((item) => item.provider != cmd.parent._name));
+      const retain = org.csp.filter(
+        (item) => item.provider != cmd.parent._name
+      );
 
-      let csp;
+      // console.log(retain);
+      // return;
+
       if (cmd.parent._name === "azure") {
         csp = {
           provider: "azure",
@@ -165,6 +168,14 @@ const org = {
           clientId: cmd.clientid,
           clientSecret: cmd.clientsecret,
           subscriptionId: cmd.subscriptionid,
+        };
+        retain.push(csp);
+      }
+      if (cmd.parent._name === "aws") {
+        csp = {
+          provider: "aws",
+          clientId: cmd.clientid,
+          clientSecret: cmd.clientsecret,
         };
         retain.push(csp);
       }
@@ -193,6 +204,8 @@ const org = {
       }
 
       csp = retain;
+      // console.log(csp);
+      // return;
 
       await backplane.updateOrgCSP(cmd.id, csp);
 
