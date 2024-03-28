@@ -161,6 +161,20 @@ const app = {
       console.error(err.message.red);
     }
   },
+  async getAppCost(cmd) {
+    if (cmd.id === undefined) {
+      console.log("Missing App ID, use --id <AppID>".red);
+      return;
+    }
+    try {
+      const backplane = new BackplaneAPI();
+      const cost = await backplane.getAppCost(cmd.id, cmd.stringify);
+
+      console.log(cost);
+    } catch (err) {
+      console.error(err.message.red);
+    }
+  },
 };
 
 module.exports = app;
