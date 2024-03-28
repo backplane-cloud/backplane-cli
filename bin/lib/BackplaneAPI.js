@@ -433,6 +433,20 @@ class BackplaneAPI {
       console.error(err);
     }
   }
+  async getAppPolicies(id, stringify) {
+    try {
+      const res = await axios.get(
+        `${this.baseUrl}/apps/${id}/policy`,
+        this.data
+      );
+      //console.log(`${res.data.length} App/s found: `.yellow);
+      let data;
+      data = stringify ? JSON.stringify(res.data) : res.data;
+      return data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
   async getApp(id, stringify) {
     try {

@@ -147,6 +147,20 @@ const app = {
       console.error(err.message.red);
     }
   },
+  async getAppPolicies(cmd) {
+    if (cmd.id === undefined) {
+      console.log("Missing App ID, use --id <AppID>".red);
+      return;
+    }
+    try {
+      const backplane = new BackplaneAPI();
+      const policies = await backplane.getAppPolicies(cmd.id, cmd.stringify);
+
+      console.log(policies);
+    } catch (err) {
+      console.error(err.message.red);
+    }
+  },
 };
 
 module.exports = app;

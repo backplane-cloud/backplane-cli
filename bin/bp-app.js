@@ -104,34 +104,50 @@ function accessCommands() {
   const access = new commander.Command("access");
   access
     .command("list")
-    .description("List Requests for App")
-    .option("-i, --id <Product ID>", "Enter App ID")
+    .description("List Access for App")
+    .option("-i, --id <App ID>", "Enter App ID")
     .option("-s, --stringify", "Return as JSON string")
     .action((cmd) => app.getAppAccess(cmd));
 
   access
     .command("add")
-    .description("Creates a new Request for App")
-    .option(
-      "--requestType <'applink' | 'exemption' | 'budget'>",
-      "Enter Request Type"
-    )
-    .option("--approvalCode <random number>", "Enter Approval Code")
-    .option("--approver <User ID>", "Enter Approver")
-    .option("--requestedBy <User ID>", "Enter User ID")
-    .option(
-      "--requestedForType <'org' | 'platform' | 'product'>",
-      "Enter Requested For Type"
-    )
-    .option(
-      "--requestedForId <Org, Platform, Product or App ID>",
-      "Enter Requested For ID"
-    )
+    .description("Creates a new Access Assignment")
     .action((cmd) => app.addAppAccess(cmd));
 
   return access;
 }
 
 program.addCommand(accessCommands());
+
+function policyCommands() {
+  const policy = new commander.Command("policy");
+  policy
+    .command("list")
+    .description("List Policies for App")
+    .option("-i, --id <App ID>", "Enter App ID")
+    .option("-s, --stringify", "Return as JSON string")
+    .action((cmd) => app.getAppPolicies(cmd));
+
+  policy
+    .command("add")
+    .description("Creates a new Policy for App")
+    .action((cmd) => app.addAppPolicies(cmd));
+
+  return policy;
+}
+program.addCommand(policyCommands());
+
+function costCommands() {
+  const cost = new commander.Command("cost");
+  cost
+    .command("list")
+    .description("List Cost for App")
+    .option("-i, --id <App ID>", "Enter App ID")
+    .option("-s, --stringify", "Return as JSON string")
+    .action((cmd) => app.getAppCost(cmd));
+
+  return cost;
+}
+program.addCommand(costCommands());
 
 program.parse(process.argv);
