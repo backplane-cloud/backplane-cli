@@ -106,6 +106,7 @@ function accessCommands() {
     .command("list")
     .description("List Requests for App")
     .option("-i, --id <Product ID>", "Enter App ID")
+    .option("-s, --stringify", "Return as JSON string")
     .action((cmd) => app.getAppAccess(cmd));
 
   access

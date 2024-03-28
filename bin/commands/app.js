@@ -140,7 +140,7 @@ const app = {
     }
     try {
       const backplane = new BackplaneAPI();
-      const access = await backplane.getAppAccess(cmd.id);
+      const access = await backplane.getAppAccess(cmd.id, cmd.stringify);
 
       console.log(access);
     } catch (err) {
