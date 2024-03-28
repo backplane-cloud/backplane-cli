@@ -419,6 +419,20 @@ class BackplaneAPI {
     }
   }
 
+  async getAppAccess(id) {
+    try {
+      const res = await axios.get(
+        `${this.baseUrl}/apps/${id}/access`,
+        this.data
+      );
+      //console.log(`${res.data.length} App/s found: `.yellow);
+
+      return res.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   async getApp(id, stringify) {
     try {
       const res = await axios.get(`${this.baseUrl}/apps/${id}`, this.data);

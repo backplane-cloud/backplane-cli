@@ -99,4 +99,38 @@ function requestCommands() {
 }
 
 program.addCommand(requestCommands());
+
+function accessCommands() {
+  const access = new commander.Command("access");
+  access
+    .command("list")
+    .description("List Requests for App")
+    .option("-i, --id <Product ID>", "Enter App ID")
+    .action((cmd) => app.getAppAccess(cmd));
+
+  access
+    .command("add")
+    .description("Creates a new Request for App")
+    .option(
+      "--requestType <'applink' | 'exemption' | 'budget'>",
+      "Enter Request Type"
+    )
+    .option("--approvalCode <random number>", "Enter Approval Code")
+    .option("--approver <User ID>", "Enter Approver")
+    .option("--requestedBy <User ID>", "Enter User ID")
+    .option(
+      "--requestedForType <'org' | 'platform' | 'product'>",
+      "Enter Requested For Type"
+    )
+    .option(
+      "--requestedForId <Org, Platform, Product or App ID>",
+      "Enter Requested For ID"
+    )
+    .action((cmd) => app.addAppAccess(cmd));
+
+  return access;
+}
+
+program.addCommand(accessCommands());
+
 program.parse(process.argv);
