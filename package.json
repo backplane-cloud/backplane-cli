@@ -1,6 +1,6 @@
 {
   "name": "@backplane-software/backplane-cli",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Backplane CLI",
   "main": "./bin/bp.js",
   "bin": {
