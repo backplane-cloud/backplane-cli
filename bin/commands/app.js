@@ -147,6 +147,7 @@ const app = {
       console.error(err.message.red);
     }
   },
+
   async getAppPolicies(cmd) {
     if (cmd.id === undefined) {
       console.log("Missing App ID, use --id <AppID>".red);

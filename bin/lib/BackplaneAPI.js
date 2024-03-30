@@ -433,6 +433,7 @@ class BackplaneAPI {
       console.error(err);
     }
   }
+
   async getAppPolicies(id, stringify) {
     try {
       const res = await axios.get(
