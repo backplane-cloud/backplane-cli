@@ -26,12 +26,12 @@ program
 
 // CREATE
 program
-  .command("add")
+  .command("create")
   .description("Creates a new app")
   .option("--displayname <value>", "Enter app display name e.g. 'My app X'")
-  .option("--code <value>", "Enter app code e.g. my-app-x")
-  .option("--orgid <value", "Enter Org ID")
-  .option("--ownerid <value>", "Enter User ID")
+  // .option("--code <value>", "Enter app code e.g. my-app-x")
+  // .option("--orgid <value", "Enter Org ID")
+  // .option("--ownerid <value>", "Enter User ID")
   .option("--cloud <value>", "e.g. gcp | azure | aws")
   .option("--template <App Type>", "e.g. default, saas etc.")
   .action((cmd) => app.addApp(cmd));
