@@ -28,7 +28,7 @@ program
 
 // CREATE
 program
-  .command("add")
+  .command("create")
   .description("Creates a new product")
   .option(
     "--displayname <value>",

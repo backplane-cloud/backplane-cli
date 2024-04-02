@@ -24,8 +24,8 @@ program
 
 // CREATE
 program
-  .command("add")
-  .description("Creates a new Assign")
+  .command("create")
+  .description("Creates a new Assignment")
   .option("--type <value>", "Enter Type i.e user | group")
   .option("--principal <User ID>", "Enter Principal ID of User")
   .option("--scope <value>", "Enter Scope")

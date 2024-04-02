@@ -24,7 +24,7 @@ program
 
 // CREATE
 program
-  .command("add")
+  .command("create")
   .description("Creates a new Service")
   .option("--code <code>", "Enter Service Code")
   .option("--displayname <name>", "Enter Service Name")

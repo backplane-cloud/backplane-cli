@@ -29,7 +29,7 @@ program
 
 // CREATE
 program
-  .command("add")
+  .command("create")
   .description("Creates a new Org")
   .option("--displayname <value>", "Enter Org name e.g. 'My Org X'")
   .option("--code <value>", "Enter Org code e.g. my-org-x")

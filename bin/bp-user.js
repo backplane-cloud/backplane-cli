@@ -24,7 +24,7 @@ program
 
 // CREATE
 program
-  .command("add")
+  .command("create")
   .description("Creates a new user")
   .option("--displayname <value>", "Enter user display name e.g. 'My user X'")
   .option("--email <value>", "Enter user code e.g. my-user-x")

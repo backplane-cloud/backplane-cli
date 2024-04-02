@@ -35,7 +35,7 @@ program
 
 // CREATE
 program
-  .command("add")
+  .command("create")
   .description("Creates a new Request")
 
   .option(

@@ -51,7 +51,7 @@ program
 
 // CREATE
 program
-  .command("add")
+  .command("create")
   .description("Creates a new role")
   .option("--displayname <value>", "Enter Display Name for role")
   .option("--type <value>", "builtin or custom")

@@ -12,7 +12,7 @@ function memberCommands() {
     .action((cmd) => Team.listMembers(cmd));
 
   member
-    .command("add")
+    .command("create")
     .description("Add members to a team")
     .option("-i, --id <Team ID>", "Enter Team ID")
     .option("-u, --userid <Team ID>", "Enter User ID")
