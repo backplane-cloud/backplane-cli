@@ -30,8 +30,8 @@ const commander = require("commander");
 function azureCommands() {
   const azure = new commander.Command("azure");
   azure
-    .command("list")
-    .description("List Cloud Service Provider")
+    .command("show")
+    .description("Show Cloud Service Provider Credentials")
     .requiredOption("-i, --id <Org ID>", "Enter Org ID")
     .action((cmd) => org.getOrgCSP(cmd));
 
@@ -57,8 +57,8 @@ function gcpCommands() {
   const gcp = new commander.Command("gcp");
   gcp
 
-    .command("list")
-    .description("List Cloud Service Provider")
+    .command("show")
+    .description("Show Cloud Service Provider Credentials")
     .requiredOption("-i, --id <Org ID>", "Enter Org ID")
 
     .action((cmd) => org.getOrgCSP(cmd));
@@ -80,8 +80,8 @@ program.addCommand(gcpCommands());
 function awsCommands() {
   const aws = new commander.Command("aws");
   aws
-    .command("list")
-    .description("List Cloud Service Provider")
+    .command("show")
+    .description("Show Cloud Service Provider Credentials")
     .requiredOption("-i, --id <Org ID>", "Enter Org ID")
     .action((cmd) => org.getOrgCSP(cmd));
 

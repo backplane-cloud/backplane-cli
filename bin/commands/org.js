@@ -51,7 +51,11 @@ const org = {
         cmd.stringify
       );
       const csp = org.csp.find((item) => item.provider === cmd.parent._name);
-      console.log(csp);
+      // console.log(csp);
+
+      csp === undefined
+        ? console.log(cmd.parent._name.toUpperCase() + " credentials not found")
+        : console.log(csp);
     } catch (err) {
       console.error(err.message.red);
     }
@@ -157,9 +161,6 @@ const org = {
       const retain = org.csp.filter(
         (item) => item.provider != cmd.parent._name
       );
-
-      // console.log(retain);
-      // return;
 
       if (cmd.parent._name === "azure") {
         csp = {
