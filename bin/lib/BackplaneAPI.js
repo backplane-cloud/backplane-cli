@@ -101,6 +101,19 @@ class BackplaneAPI {
       console.error(err);
     }
   }
+  async getOrgTemplates(id, stringify) {
+    try {
+      const res = await axios.get(
+        `${this.baseUrl}/orgs/${id}/templates`,
+        this.data
+      );
+      let data;
+      stringify ? (data = JSON.stringify(res.data)) : (data = res.data);
+      return data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
   async deleteOrg(id) {
     try {
