@@ -18,6 +18,7 @@ program
   .command("backlog", "Manage Product Backlog, Sprints and Items")
   .command("cloud", "Register Cloud Service Provider")
   .command("template", "Configure Environment App Templates")
+  .command("budget", "Manage Organisational Budget")
 
   .command("", "\n-----------[ Access Management ]--------")
   .command("auth", "Login to Backplane".yellow)

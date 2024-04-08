@@ -4,43 +4,43 @@ const org = require("./commands/org");
 // GET all
 program
   .command("list")
-  .description("List App Environment Templates for Org")
+  .description("List Budgets for an Org")
   .option("-s, --stringify", "Return as JSON string")
   .option("-i, --id <org ID>", "Enter org ID")
 
-  .action(org.getOrgTemplates);
+  .action(org.getOrgBudgets);
 
 // The below are not yet implemented
 
-// GET
+// // GET
 // program
 //   .command("show")
-//   .description("Show a Template")
+//   .description("Show a Budget")
 //   .option("-i, --id <org ID>", "Enter org ID")
 //   .option("-s, --stringify", "Return as JSON string")
-//   .action((cmd) => org.getOrgTemplate(cmd));
+//   .action((cmd) => org.getOrgBudget(cmd));
 
 // // DELETE
 // program
 //   .command("remove")
-//   .description("Remove a Template")
+//   .description("Remove a Budget")
 //   .option("-i, --id <org ID>", "Enter org ID")
-//   .action((cmd) => org.deleteOrgTemplate(cmd));
+//   .action((cmd) => org.deleteOrgBudget(cmd));
 
 // // CREATE
 // program
 //   .command("create")
-//   .description("Creates a new Template")
+//   .description("Creates a new Budget")
 //   .option("--displayname <value>", "Enter org display name e.g. 'My org X'")
 //   //.option("--code <value>", "Enter org code e.g. my-org-x")
 //   // .option("--orgid <value>", "Enter Organisation ID")
 //   // .option("--ownerid <value>", "Enter User ID")
-//   .action((cmd) => org.addOrgTemplate(cmd));
+//   .action((cmd) => org.addOrgBudget(cmd));
 
 // // Update
 // program
 //   .command("update")
-//   .description("Update OrgTemplate")
+//   .description("Update OrgBudget")
 //   .option("-i, --id <org ID>", "Enter org ID")
 //   .option("--displayname <value>", "Enter org name e.g. 'My org X'")
 //   .option("--code <value>", "Enter org code e.g. my-org-x")

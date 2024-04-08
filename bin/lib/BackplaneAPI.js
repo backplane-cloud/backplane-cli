@@ -114,6 +114,19 @@ class BackplaneAPI {
       console.error(err);
     }
   }
+  async getOrgBudgets(id, stringify) {
+    try {
+      const res = await axios.get(
+        `${this.baseUrl}/orgs/${id}/budgets`,
+        this.data
+      );
+      let data;
+      stringify ? (data = JSON.stringify(res.data)) : (data = res.data);
+      return data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
   async deleteOrg(id) {
     try {

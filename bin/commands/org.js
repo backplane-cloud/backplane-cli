@@ -84,6 +84,29 @@ const org = {
     }
   },
 
+  async getOrgBudgets(cmd) {
+    if ((cmd.id === undefined) & (cmd.code === undefined)) {
+      console.log(
+        "Please provide either an Org ID e.g. --id <org id> or --code <org code>"
+      );
+      return;
+    }
+
+    try {
+      const backplane = new BackplaneAPI();
+      const budgets = await backplane.getOrgBudgets(
+        cmd.id ? cmd.id : cmd.code,
+        cmd.stringify
+      );
+
+      budgets
+        ? console.log(budgets)
+        : console.log("No App Budgets exist for Org");
+    } catch (err) {
+      console.error(err.message.red);
+    }
+  },
+
   async deleteOrg(cmd) {
     if (cmd.id === undefined) {
       console.log("Missing Org ID, use --id <org id>");
