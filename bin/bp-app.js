@@ -140,8 +140,8 @@ program.addCommand(policyCommands());
 function costCommands() {
   const cost = new commander.Command("cost");
   cost
-    .command("list")
-    .description("List Cost for App")
+    .command("show")
+    .description("Show Cost for App")
     .option("-i, --id <App ID>", "Enter App ID")
     .option("-s, --stringify", "Return as JSON string")
     .action((cmd) => app.getAppCost(cmd));
