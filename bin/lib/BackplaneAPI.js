@@ -418,6 +418,21 @@ class BackplaneAPI {
     }
   }
 
+  async getProductCost(id, stringify) {
+    try {
+      const res = await axios.get(
+        `${this.baseUrl}/products/${id}/cost`,
+        this.data
+      );
+      //console.log(`${res.data.length} App/s found: `.yellow);
+      let data;
+      data = stringify ? JSON.stringify(res.data) : res.data;
+      return data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   // APPS
   async getApps(stringify) {
     try {

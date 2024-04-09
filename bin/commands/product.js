@@ -117,6 +117,21 @@ const product = {
       console.error(err.message.red);
     }
   },
+
+  async getProductCost(cmd) {
+    if (cmd.id === undefined) {
+      console.log("Missing Product ID, use --id <Product ID>".red);
+      return;
+    }
+    try {
+      const backplane = new BackplaneAPI();
+      const cost = await backplane.getProductCost(cmd.id, cmd.stringify);
+
+      console.log(cost);
+    } catch (err) {
+      console.error(err.message.red);
+    }
+  },
 };
 
 module.exports = product;
