@@ -210,6 +210,18 @@ class BackplaneAPI {
     }
   }
 
+  async getOrgCost(id, stringify) {
+    try {
+      const res = await axios.get(`${this.baseUrl}/orgs/${id}/cost`, this.data);
+      //console.log(`${res.data.length} App/s found: `.yellow);
+      let data;
+      data = stringify ? JSON.stringify(res.data) : res.data;
+      return data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   // PLATFORMS
   async getPlatforms(stringify) {
     try {
@@ -301,6 +313,21 @@ class BackplaneAPI {
       );
       //console.log(`${res.data.length} App/s found: `.yellow);
       return res.data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async getPlatformCost(id, stringify) {
+    try {
+      const res = await axios.get(
+        `${this.baseUrl}/platforms/${id}/cost`,
+        this.data
+      );
+      //console.log(`${res.data.length} App/s found: `.yellow);
+      let data;
+      data = stringify ? JSON.stringify(res.data) : res.data;
+      return data;
     } catch (err) {
       console.error(err);
     }

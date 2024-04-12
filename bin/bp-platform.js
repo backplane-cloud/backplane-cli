@@ -101,4 +101,17 @@ function requestCommands() {
 
 program.addCommand(requestCommands());
 
+function costCommands() {
+  const cost = new commander.Command("cost");
+  cost
+    .command("show")
+    .description("Show Cost for Platform")
+    .option("-i, --id <Platform ID>", "Enter App ID")
+    .option("-s, --stringify", "Return as JSON string")
+    .action((cmd) => platform.getPlatformCost(cmd));
+
+  return cost;
+}
+program.addCommand(costCommands());
+
 program.parse(process.argv);

@@ -348,6 +348,21 @@ const org = {
       console.error(err.message.red);
     }
   },
+
+  async getOrgCost(cmd) {
+    if (cmd.id === undefined) {
+      console.log("Missing Org ID, use --id <Org ID>".red);
+      return;
+    }
+    try {
+      const backplane = new BackplaneAPI();
+      const cost = await backplane.getOrgCost(cmd.id, cmd.stringify);
+
+      console.log(cost);
+    } catch (err) {
+      console.error(err.message.red);
+    }
+  },
 };
 
 module.exports = org;

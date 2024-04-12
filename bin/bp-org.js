@@ -109,4 +109,17 @@ function requestCommands() {
 
 program.addCommand(requestCommands());
 
+function costCommands() {
+  const cost = new commander.Command("cost");
+  cost
+    .command("show")
+    .description("Show Cost for App")
+    .option("-i, --id <Org ID>", "Enter Org ID")
+    .option("-s, --stringify", "Return as JSON string")
+    .action((cmd) => org.getOrgCost(cmd));
+
+  return cost;
+}
+program.addCommand(costCommands());
+
 program.parse(process.argv);

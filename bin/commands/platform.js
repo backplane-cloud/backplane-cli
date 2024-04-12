@@ -125,6 +125,21 @@ const platform = {
       console.error(err.message.red);
     }
   },
+
+  async getPlatformCost(cmd) {
+    if (cmd.id === undefined) {
+      console.log("Missing Platform ID, use --id <PlatformID>".red);
+      return;
+    }
+    try {
+      const backplane = new BackplaneAPI();
+      const cost = await backplane.getPlatformCost(cmd.id, cmd.stringify);
+
+      console.log(cost);
+    } catch (err) {
+      console.error(err.message.red);
+    }
+  },
 };
 
 module.exports = platform;
