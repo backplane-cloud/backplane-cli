@@ -114,6 +114,7 @@ class BackplaneAPI {
       console.error(err);
     }
   }
+
   async getOrgBudgets(id, stringify) {
     try {
       const res = await axios.get(
@@ -333,6 +334,20 @@ class BackplaneAPI {
     }
   }
 
+  async getPlatformBudgets(id, stringify) {
+    try {
+      const res = await axios.get(
+        `${this.baseUrl}/platforms/${id}/budgets`,
+        this.data
+      );
+      let data;
+      stringify ? (data = JSON.stringify(res.data)) : (data = res.data);
+      return data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   // PRODUCTS
   async getProducts(all, stringify) {
     try {
@@ -454,6 +469,20 @@ class BackplaneAPI {
       //console.log(`${res.data.length} App/s found: `.yellow);
       let data;
       data = stringify ? JSON.stringify(res.data) : res.data;
+      return data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async getProductBudgets(id, stringify) {
+    try {
+      const res = await axios.get(
+        `${this.baseUrl}/products/${id}/budgets`,
+        this.data
+      );
+      let data;
+      stringify ? (data = JSON.stringify(res.data)) : (data = res.data);
       return data;
     } catch (err) {
       console.error(err);

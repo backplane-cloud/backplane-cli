@@ -132,6 +132,29 @@ const product = {
       console.error(err.message.red);
     }
   },
+
+  async getProductBudgets(cmd) {
+    if ((cmd.id === undefined) & (cmd.code === undefined)) {
+      console.log(
+        "Please provide either an Product ID e.g. --id <product id> or --code <product code>"
+      );
+      return;
+    }
+
+    try {
+      const backplane = new BackplaneAPI();
+      const budgets = await backplane.getProductBudgets(
+        cmd.id ? cmd.id : cmd.code,
+        cmd.stringify
+      );
+
+      budgets
+        ? console.log(budgets)
+        : console.log("No budget found for Product");
+    } catch (err) {
+      console.error(err.message.red);
+    }
+  },
 };
 
 module.exports = product;

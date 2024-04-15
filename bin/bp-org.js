@@ -122,4 +122,17 @@ function costCommands() {
 }
 program.addCommand(costCommands());
 
+function budgetCommands() {
+  const budget = new commander.Command("budget");
+  budget
+    .command("show")
+    .description("Show Budget for Org")
+    .option("-i, --id <Org ID>", "Enter Org ID")
+    .option("-s, --stringify", "Return as JSON string")
+    .action((cmd) => org.getOrgBudgets(cmd));
+
+  return budget;
+}
+program.addCommand(budgetCommands());
+
 program.parse(process.argv);

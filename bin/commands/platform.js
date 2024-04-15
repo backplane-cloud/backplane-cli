@@ -140,6 +140,29 @@ const platform = {
       console.error(err.message.red);
     }
   },
+
+  async getPlatformBudgets(cmd) {
+    if ((cmd.id === undefined) & (cmd.code === undefined)) {
+      console.log(
+        "Please provide either an Platform ID e.g. --id <platform id> or --code <platform code>"
+      );
+      return;
+    }
+
+    try {
+      const backplane = new BackplaneAPI();
+      const budgets = await backplane.getPlatformBudgets(
+        cmd.id ? cmd.id : cmd.code,
+        cmd.stringify
+      );
+
+      budgets
+        ? console.log(budgets)
+        : console.log("No Platform Budgets exist for Org");
+    } catch (err) {
+      console.error(err.message.red);
+    }
+  },
 };
 
 module.exports = platform;

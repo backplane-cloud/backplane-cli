@@ -115,4 +115,17 @@ function costCommands() {
 }
 program.addCommand(costCommands());
 
+function budgetCommands() {
+  const budget = new commander.Command("budget");
+  budget
+    .command("show")
+    .description("Show Budget for Product")
+    .option("-i, --id <Org ID>", "Enter Product ID")
+    .option("-s, --stringify", "Return as JSON string")
+    .action((cmd) => product.getProductBudgets(cmd));
+
+  return budget;
+}
+program.addCommand(budgetCommands());
+
 program.parse(process.argv);
