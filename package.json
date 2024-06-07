@@ -19,7 +19,8 @@
     "colors": "1.4.0",
     "commander": "^5.1.0",
     "configstore": "^5.0.1",
-    "inquirer": "^7.1.0"
+    "inquirer": "^7.1.0",
+    "open": "^10.1.0"
   },
   "pkg": {
     "scripts": "bin/**/*.js",
@@ -28,7 +29,6 @@
       "./node_modules/axios/dist/node/axios.cjs"
     ]
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/backplane-cloud/backplane-cli.git"
