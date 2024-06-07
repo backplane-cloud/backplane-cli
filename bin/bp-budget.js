@@ -27,15 +27,15 @@ program
 //   .option("-i, --id <org ID>", "Enter org ID")
 //   .action((cmd) => org.deleteOrgBudget(cmd));
 
-// // CREATE
-// program
-//   .command("create")
-//   .description("Creates a new Budget")
-//   .option("--displayname <value>", "Enter org display name e.g. 'My org X'")
-//   //.option("--code <value>", "Enter org code e.g. my-org-x")
-//   // .option("--orgid <value>", "Enter Organisation ID")
-//   // .option("--ownerid <value>", "Enter User ID")
-//   .action((cmd) => org.addOrgBudget(cmd));
+// CREATE
+program
+  .command("create")
+  .description("Creates a new Budget")
+  .option("--year <value>", "Enter Budget Year")
+  .option("--amount <value>", "Enter Budget Amount")
+  .option("--currency <value>", "Enter Currency")
+  .option("--id <value>", "Enter Org ID")
+  .action((cmd) => org.addOrgBudget(cmd));
 
 // // Update
 // program

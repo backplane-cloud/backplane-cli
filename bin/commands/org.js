@@ -50,7 +50,8 @@ const org = {
         cmd.id ? cmd.id : cmd.code,
         cmd.stringify
       );
-      const csp = org.csp.find((item) => item.provider === cmd.parent._name);
+
+      const csp = org.csp?.find((item) => item.provider === cmd.parent._name);
       // console.log(csp);
 
       csp === undefined
@@ -96,6 +97,32 @@ const org = {
       const backplane = new BackplaneAPI();
       const budgets = await backplane.getOrgBudgets(
         cmd.id ? cmd.id : cmd.code,
+        cmd.stringify
+      );
+
+      budgets
+        ? console.log(budgets)
+        : console.log("No App Budgets exist for Org");
+    } catch (err) {
+      console.error(err.message.red);
+    }
+  },
+
+  async addOrgBudget(cmd) {
+    if ((cmd.id === undefined) & (cmd.code === undefined)) {
+      console.log(
+        "Please provide either an Org ID e.g. --id <org id> or --code <org code>"
+      );
+      return;
+    }
+
+    try {
+      const backplane = new BackplaneAPI();
+      const budgets = await backplane.setOrgBudget(
+        cmd.id ? cmd.id : cmd.code,
+        cmd.year,
+        cmd.amount,
+        cmd.currency,
         cmd.stringify
       );
 
@@ -204,9 +231,10 @@ const org = {
         cmd.stringify
       );
 
-      const retain = org.csp.filter(
-        (item) => item.provider != cmd.parent._name
-      );
+      let retain = [];
+      if (org.csp !== undefined) {
+        retain = org.csp.filter((item) => item.provider != cmd.parent._name);
+      }
 
       if (cmd.parent._name === "azure") {
         csp = {
@@ -299,7 +327,7 @@ const org = {
       orgPlatforms.map((platform) => {
         cmd.full
           ? console.log(
-              `|\n|--> [platform] ${platform.code.yellow} [${platform._id.gray}] [${platform.budget[0].currency}: ${platform.budget[0].budget}]`
+              `|\n|--> [platform] ${platform.code.yellow} [${platform._id.gray}] `
             )
           : console.log(`|\n|--> [platform] ${platform.code.yellow}`);
 
@@ -309,7 +337,7 @@ const org = {
         platformProducts.map((product) => {
           cmd.full
             ? console.log(
-                `|        |\n|        |---> [product] ${product.code.green} [${product._id.gray}] [${product.budget[0].currency}: ${product.budget[0].budget}]`
+                `|        |\n|        |---> [product] ${product.code.green} [${product._id.gray}] `
               )
             : console.log(
                 `|        |\n|        |---> [product] ${product.code.green}`
@@ -319,7 +347,7 @@ const org = {
           productApps.map((app) =>
             cmd.full
               ? console.log(
-                  `|                  |\n|                  |--> [app] ${app.code.red} [${app.cloud.gray}] [${app._id.gray}] [${app.budget[0].currency}: ${app.budget[0].budget}]`
+                  `|                  |\n|                  |--> [app] ${app.code.red} [${app.cloud.gray}] [${app._id.gray}] `
                 )
               : console.log(
                   `|                  |\n|                  |--> [app] ${app.code.red}`
@@ -328,7 +356,7 @@ const org = {
         });
       });
 
-      console.log("X");
+      console.log("+");
     } catch (err) {
       console.error(err.message.red);
     }

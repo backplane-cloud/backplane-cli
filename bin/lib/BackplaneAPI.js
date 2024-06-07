@@ -101,6 +101,7 @@ class BackplaneAPI {
       console.error(err);
     }
   }
+
   async getOrgTemplates(id, stringify) {
     try {
       const res = await axios.get(
@@ -121,6 +122,27 @@ class BackplaneAPI {
         `${this.baseUrl}/orgs/${id}/budgets`,
         this.data
       );
+      let data;
+      stringify ? (data = JSON.stringify(res.data)) : (data = res.data);
+      return data;
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
+  async setOrgBudget(id, year, budget, currency, stringify) {
+    let budgetObj = {
+      year,
+      budget,
+      currency,
+    };
+    try {
+      const res = await axios.post(
+        `${this.baseUrl}/orgs/${id}/budgets/create`,
+        budgetObj,
+        this.data
+      );
+
       let data;
       stringify ? (data = JSON.stringify(res.data)) : (data = res.data);
       return data;
@@ -259,11 +281,12 @@ class BackplaneAPI {
     }
   }
 
-  async addPlatform(code, displayname, orgId, ownerId) {
+  async addPlatform(code, displayname, description, orgId, ownerId) {
     try {
       let platformObj = {
         code,
         name: displayname,
+        description,
         orgId,
         ownerId,
       };
@@ -1493,14 +1516,14 @@ class BackplaneAPI {
     }
   }
 
-  async addAssignment(type, principal, scope, role) {
+  async addAssignment(assigntype, principal, scope, role) {
     try {
       let assignmentObj = {
-        type,
+        type: assigntype,
         principal,
         scope,
         role,
-        principalRef: type[0].toUpperCase() + type.substring(1, type.length),
+        principalRef: assigntype,
       };
 
       // console.log(assignmentObj);
