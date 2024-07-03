@@ -26,7 +26,7 @@ program
 program
   .command("create")
   .description("Creates a new Assignment")
-  .option("--type <value>", "Enter Type i.e user | group")
+  .option("--assigntype <value>", "Enter Type i.e user | group")
   .option("--principal <User ID>", "Enter Principal ID of User")
   .option("--scope <value>", "Enter Scope")
   .option("--role <Role ID>", "Enter Role ID")
@@ -44,7 +44,6 @@ program
   .option("--role <Role ID>", "Enter Role ID")
   .option("--expires <Date>", "Enter Date YYYY-MM--DD")
   .option("--orgid <Org ID>", "Enter Org ID")
-
   .action((cmd) => Assign.updateAssignment(cmd));
 
 program.parse(process.argv);

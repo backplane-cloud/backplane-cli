@@ -34,6 +34,10 @@ program
     "--displayname <value>",
     "Enter platform display name e.g. 'My platform X'"
   )
+  .option(
+    "--description <value>",
+    "Enter platform description e.g. 'My platform X'"
+  )
   //.option("--code <value>", "Enter platform code e.g. my-platform-x")
   // .option("--orgid <value>", "Enter Organisation ID")
   // .option("--ownerid <value>", "Enter User ID")

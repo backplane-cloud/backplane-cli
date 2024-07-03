@@ -1,6 +1,6 @@
 const BackplaneAPI = require("../lib/BackplaneAPI");
 // const TokenManager = require("../lib/TokenManager");
-// const colors = require("colors");
+const colors = require("colors");
 
 const assign = {
   async getAssignments(cmd) {
@@ -65,12 +65,13 @@ const assign = {
     //   );
     //   return;
     // }
+    // console.log(cmd);
 
     try {
       const backplane = new BackplaneAPI();
 
       const assign = await backplane.addAssignment(
-        cmd.type,
+        cmd.assigntype,
         cmd.principal,
         cmd.scope,
         cmd.role,

@@ -37,11 +37,7 @@ program
 program
   .command("create")
   .description("Creates a new Request")
-
-  .option(
-    "--requestType <'link' | 'exemption' | 'budget'>",
-    "Enter Request Type"
-  )
+  .option("--requestType <'link' | 'budget'>", "Enter Request Type")
 
   // .option("--approver <User ID>", "Enter Approver")
   // .option("--requestedBy <User ID>", "Enter User ID")
@@ -54,14 +50,8 @@ program
     "Enter Requested For ID"
   )
 
-  .option(
-    "--appid <AppID>",
-    "For applink enter AppID, for budget, enter budget amount etc"
-  )
-  .option(
-    "--budget <BudgetAmount>",
-    "For applink enter AppID, for budget, enter budget amount etc"
-  )
+  .option("--appid <AppID>", "For LINK request, provide AppID")
+  .option("--budget <BudgetAmount>", "Enter budget amount")
 
   .action((cmd) => Request.addRequest(cmd));
 

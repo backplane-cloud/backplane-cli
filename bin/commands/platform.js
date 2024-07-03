@@ -54,6 +54,7 @@ const platform = {
       const platform = await backplane.addPlatform(
         cmd.code,
         cmd.displayname,
+        cmd.description,
         cmd.orgid,
         cmd.ownerid
       );

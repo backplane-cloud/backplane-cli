@@ -125,7 +125,7 @@ program.addCommand(costCommands());
 function budgetCommands() {
   const budget = new commander.Command("budget");
   budget
-    .command("show")
+    .command("list")
     .description("Show Budget for Org")
     .option("-i, --id <Org ID>", "Enter Org ID")
     .option("-s, --stringify", "Return as JSON string")

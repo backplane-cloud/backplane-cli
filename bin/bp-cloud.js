@@ -32,7 +32,7 @@ function azureCommands() {
   azure
     .command("show")
     .description("Show Cloud Service Provider Credentials")
-    .requiredOption("-i, --id <Org ID>", "Enter Org ID")
+    .option("-i, --id <Org ID>", "Enter Org ID")
     .action((cmd) => org.getOrgCSP(cmd));
 
   azure
