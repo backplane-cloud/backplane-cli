@@ -41,7 +41,7 @@ program
   .command("", "\n")
   .command("getting-started", "Getting Started User Guide")
   .command("about", "About Backplane")
-  .command("console", "Launch Backplane Console")
+  .command("dev", "Developer Tools")
 
   .command("", "\n")
 
