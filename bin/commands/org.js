@@ -278,6 +278,29 @@ const org = {
         retain.push(csp);
       }
 
+      if (cmd.parent._name === "oci") {
+        try {
+          // Read the JSON file synchronously
+          const data = fs.readFileSync(cmd.ocisecret, "utf8");
+
+          // Parse the JSON data
+          const jsonData = JSON.parse(data);
+
+          // Output the JSON data
+          // console.log(jsonData);
+          // return;
+
+          csp = {
+            provider: "oci",
+            ocisecret: jsonData,
+          };
+        } catch (error) {
+          console.error("Error reading JSON file:", error.message);
+        }
+
+        retain.push(csp);
+      }
+
       csp = retain;
       // console.log(csp);
       // return;

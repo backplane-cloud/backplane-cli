@@ -77,6 +77,26 @@ function gcpCommands() {
 
 program.addCommand(gcpCommands());
 
+function ociCommands() {
+  const oci = new commander.Command("oci");
+  oci
+    .command("show")
+    .description("Show Cloud Service Provider Credentials")
+    .requiredOption("-i, --id <Org ID>", "Enter Org ID")
+    .action((cmd) => org.getOrgCSP(cmd));
+  oci
+    .command("add")
+    .description("Add Cloud Service Provider")
+    .requiredOption("-i, --id <Org ID>", "Enter Org ID")
+    // .requiredOption("--tenantid <value>", "Enter Tenant ID")
+    .option("--ocisecret <value>", "Enter Path to JSON Credentials")
+    .action((cmd) => org.updateOrgCSP(cmd));
+
+  return oci;
+}
+
+program.addCommand(ociCommands());
+
 function awsCommands() {
   const aws = new commander.Command("aws");
   aws
