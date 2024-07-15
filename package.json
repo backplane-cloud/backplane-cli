@@ -10,7 +10,9 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel bin -d dist/transpiled",
+    "package": "pkg dist/transpiled/bp.js --targets node16-macos-arm64 --output /dist/bp"
   },
   "author": "lewis@backplane.cloud",
   "license": "MIT",
@@ -20,6 +22,13 @@
     "commander": "^5.1.0",
     "configstore": "^5.0.1",
     "inquirer": "^7.1.0"
+  },
+  "pkg": {
+    "scripts": "bin/**/*.js",
+    "outputPath": "dist",
+    "assets": [
+      "./node_modules/axios/dist/node/axios.cjs"
+    ]
   },
   "repository": {
     "type": "git",
