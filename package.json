@@ -10,9 +10,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel bin -d dist/transpiled",
-    "package": "pkg dist/transpiled/bp.js --targets node16-macos-arm64 --output /dist/bp"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "lewis@backplane.cloud",
   "license": "MIT",
@@ -21,15 +19,7 @@
     "colors": "1.4.0",
     "commander": "^5.1.0",
     "configstore": "^5.0.1",
-    "inquirer": "^7.1.0",
-    "open": "^10.1.0"
-  },
-  "pkg": {
-    "scripts": "bin/**/*.js",
-    "outputPath": "dist",
-    "assets": [
-      "./node_modules/axios/dist/node/axios.cjs"
-    ]
+    "inquirer": "^7.1.0"
   },
   "repository": {
     "type": "git",
@@ -42,10 +32,5 @@
   "bugs": {
     "url": "https://github.com/backplane-cloud/backplane-cli/issues"
   },
-  "homepage": "https://github.com/backplane-cloud/backplane-cli#readme",
-  "devDependencies": {
-    "@babel/cli": "^7.24.8",
-    "@babel/core": "^7.24.8",
-    "@babel/preset-env": "^7.24.8"
-  }
+  "homepage": "https://github.com/backplane-cloud/backplane-cli#readme"
 }
