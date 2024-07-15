@@ -3,3 +3,4 @@
 *.zip
 *.bash
 /dist
+.DS_Store

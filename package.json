@@ -10,7 +10,9 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel bin -d dist/transpiled",
+    "package": "pkg dist/transpiled/bp.js --targets node16-macos-arm64 --output /dist/bp"
   },
   "author": "lewis@backplane.cloud",
   "license": "MIT",
@@ -40,5 +42,10 @@
   "bugs": {
     "url": "https://github.com/backplane-cloud/backplane-cli/issues"
   },
-  "homepage": "https://github.com/backplane-cloud/backplane-cli#readme"
+  "homepage": "https://github.com/backplane-cloud/backplane-cli#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/core": "^7.24.8",
+    "@babel/preset-env": "^7.24.8"
+  }
 }

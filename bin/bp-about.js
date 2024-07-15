@@ -12,7 +12,7 @@ To get started, you can register your first user:
 
 bp user register --displayname <DisplayName> --email <EmailAddress> --password <Password> --orgname <OrganisationName>
 
-For full documentation, visit https://backplane.dev/quick-start
+For full documentation, visit https://backplane.dev/blog/quick-start/
 
 CLI version: ${pkg.version}
 Package Name: ${pkg.name}
