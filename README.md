@@ -10,7 +10,7 @@ Backplane CLI client.
 
 - Access the CLI User Guide from:
 
-  [https://getbackplane.io/blog/cli-userguide](http://getbackplane.io/blog/cli-userguide)
+  [https://getbackplane.io/docs/cli-userguide](http://getbackplane.io/docs/cli-userguide)
 
 ### Binaries
 
